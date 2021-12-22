@@ -19,7 +19,7 @@ public class SaucepanScreenHandler extends ScreenHandler {
 
     public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(CateScreenHandlers.Saucepan_ScreenHandler, syncId);
-        checkDataCount(propertyDelegate, 4);
+        checkDataCount(propertyDelegate, 5);
         this.propertyDelegate = propertyDelegate;
         this.addProperties(propertyDelegate);
         checkSize(inventory, 11);
@@ -56,7 +56,7 @@ public class SaucepanScreenHandler extends ScreenHandler {
     }
 
     public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory, new SimpleInventory(11), new ArrayPropertyDelegate(4));
+        this(syncId, playerInventory, new SimpleInventory(11), new ArrayPropertyDelegate(5));
     }
 
     public boolean isCooking(){
@@ -64,7 +64,7 @@ public class SaucepanScreenHandler extends ScreenHandler {
     }
 
     public boolean isBeating(){
-        return this.propertyDelegate.get(2) == 1;
+        return this.propertyDelegate.get(3) == 1;
     }
 
     public int getCookingTick(){
@@ -76,7 +76,15 @@ public class SaucepanScreenHandler extends ScreenHandler {
     }
 
     public int getTimerWidth(){
-        return (this.isCooking() ? 20 * this.getCookingTick() / this.getCookingTime() : 0) + 12;
+        return this.isCooking() ? 20 * (this.getCookingTick() / this.getCookingTime()) + 12 : 12;
+    }
+
+    public int getTemperature(){
+        return this.propertyDelegate.get(4);
+    }
+
+    public int getTemperatureBarWidth(){
+        return this.getTemperature() * 3 / 5;
     }
 
     @Override

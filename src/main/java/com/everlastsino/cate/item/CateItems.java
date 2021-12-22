@@ -11,7 +11,14 @@ import net.minecraft.util.registry.Registry;
 
 public class CateItems {
     //普通物品
+    //农副产品
     public static final Item Paddy_Straw = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
+    //猎物
+    public static final Item Oyster = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
+    //调味品
+    public static final Item Oyster_Sauce = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //方块物品
     //普通方块
@@ -30,7 +37,14 @@ public class CateItems {
 
     public static void registerItems(){
         //普通物品
+        //农副产品
         Registry.register(Registry.ITEM, new Identifier("cate", "paddy_straw"), Paddy_Straw);
+
+        //猎物
+        Registry.register(Registry.ITEM, new Identifier("cate", "oyster"), Oyster);
+
+        //调味品
+        Registry.register(Registry.ITEM, new Identifier("cate", "oyster_sauce"), Oyster_Sauce);
 
         //方块物品
         //普通方块

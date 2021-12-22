@@ -10,6 +10,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CampfireBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -21,10 +22,13 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,7 +56,9 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
     private float experience;
     private int cookingTime;
     public boolean isCooking;
+    public boolean isBeating;
     public int cookingTick;
+    public int temperature;
     protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
 
         @Override
@@ -61,7 +67,8 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                 case 0 -> { return SaucepanBlockEntity.this.isCooking ? 1 : 0;}
                 case 1 -> { return SaucepanBlockEntity.this.cookingTick;}
                 case 2 -> { return SaucepanBlockEntity.this.cookingTime;}
-                case 3 -> { return SaucepanBlockEntity.this.isBeating() ? 1 : 0;}
+                case 3 -> { return SaucepanBlockEntity.this.isBeating ? 1 : 0;}
+                case 4 -> { return SaucepanBlockEntity.this.temperature;}
             }
             return 0;
         }
@@ -69,15 +76,17 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         @Override
         public void set(int index, int value) {
             switch (index) {
-                case 0 -> SaucepanBlockEntity.this.isCooking = value == 1;
+                case 0 -> SaucepanBlockEntity.this.isCooking = value >= 1;
                 case 1 -> SaucepanBlockEntity.this.cookingTick = value;
                 case 2 -> SaucepanBlockEntity.this.cookingTime = value;
+                case 3 -> SaucepanBlockEntity.this.isBeating = value >= 1;
+                case 4 -> SaucepanBlockEntity.this.temperature = value;
             }
         }
 
         @Override
         public int size() {
-            return 4;
+            return 5;
         }
     };
 
@@ -165,14 +174,25 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return true;
     }
 
-    public boolean isBeating(){
-         return this.world != null &&
+    public void updateBeatingSituation(){
+         this.isBeating = this.world != null &&
                  (this.world.getBlockState(this.pos.down()).isOf(Blocks.CAMPFIRE) || this.world.getBlockState(this.pos.down()).isOf(Blocks.SOUL_CAMPFIRE)) &&
                 this.world.getBlockState(this.pos.down()).get(CampfireBlock.LIT);
+         this.temperature = this.isBeating ? 75 : 20;
+    }
+
+    private static void dropExperience(ServerWorld world, Vec3d pos, float experience) {
+        int i = MathHelper.floor(experience);
+        float f = MathHelper.fractionalPart(experience);
+        if (f != 0.0f && Math.random() < (double)f) {
+            ++i;
+        }
+        ExperienceOrbEntity.spawn(world, pos, i);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         if(blockEntity instanceof SaucepanBlockEntity entity){
+            entity.updateBeatingSituation();
             if(entity.cookingTime == 0){
                 List<PotCookingRecipe> recipes = world.getRecipeManager().listAllOfType(CateRecipes.Pot_Cooking_RecipeType);
                 for (PotCookingRecipe recipe : recipes) {
@@ -182,6 +202,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                         entity.latestResult = recipe.result;
                         entity.experience = recipe.experience;
                         entity.cookingTime = recipe.cookTime;
+                        entity.markDirty();
                         break;
                     }
                 }
@@ -190,11 +211,13 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
             }
             if(entity.getWaterContainer().isOf(Items.WATER_BUCKET) && entity.getContainer().isOf(entity.latestContainer.getItem()) &&
                     entity.getResults().get(0).isOf(Items.AIR) && entity.getResults().get(1).isOf(Items.AIR) && entity.getResults().get(2).isOf(Items.AIR) &&
-                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) && entity.isBeating()){
+                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) && entity.isBeating){
                 if(entity.cookingTime == entity.cookingTick){
                     entity.insertResults(entity.latestResult);
                     entity.eraseWater();
                     entity.eraseIngredient();
+                    dropExperience((ServerWorld) world, Vec3d.ofCenter(pos), entity.experience);
+                    entity.experience = 0;
                     return;
                 }
                 entity.isCooking = true;
@@ -241,6 +264,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                 }
             }
         }
+        this.updateBeatingSituation();
     }
 
     @Override

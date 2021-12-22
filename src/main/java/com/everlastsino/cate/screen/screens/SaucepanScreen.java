@@ -27,10 +27,14 @@ public class SaucepanScreen extends HandledScreen<SaucepanScreenHandler> {
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        //绘制时间条儿
         this.drawTexture(matrices, this.x + 104, this.y + 51, 176, 36, this.handler.getTimerWidth(), 16);
+        //如果下方正在加热，绘制火的图案
         if(this.handler.isBeating()){
             this.drawTexture(matrices, this.x + 38, this.y + 49, 176, 0, 64, 20);
         }
+        //绘制温度条儿
+        this.drawTexture(matrices, this.x + 40, this.y + 66, 176, 21, this.handler.getTemperatureBarWidth(), 10);
     }
 
     @Override
