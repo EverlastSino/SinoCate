@@ -1,5 +1,6 @@
 package com.everlastsino.cate.item;
 
+import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -13,6 +14,10 @@ public class CateItems {
     public static final Item Paddy_Straw = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //方块物品
+    //普通方块
+    public static final BlockItem Saucepan = new BlockItem(CateBlocks.Saucepan,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
+
     //作物
     //耕地
     public static final BlockItem Rough_Rice = new BlockItem(CateCrops.Paddy_Seedling,
@@ -28,6 +33,9 @@ public class CateItems {
         Registry.register(Registry.ITEM, new Identifier("cate", "paddy_straw"), Paddy_Straw);
 
         //方块物品
+        //普通方块
+        Registry.register(Registry.ITEM, new Identifier("cate", "saucepan"), Saucepan);
+
         //作物
         //耕地
         Registry.register(Registry.ITEM, new Identifier("cate", "rough_rice"), Rough_Rice);
