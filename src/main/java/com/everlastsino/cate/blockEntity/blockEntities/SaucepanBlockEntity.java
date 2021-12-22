@@ -206,8 +206,6 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                         break;
                     }
                 }
-                entity.isCooking = false;
-                return;
             }
             if(entity.getWaterContainer().isOf(Items.WATER_BUCKET) && entity.getContainer().isOf(entity.latestContainer.getItem()) &&
                     entity.getResults().get(0).isOf(Items.AIR) && entity.getResults().get(1).isOf(Items.AIR) && entity.getResults().get(2).isOf(Items.AIR) &&

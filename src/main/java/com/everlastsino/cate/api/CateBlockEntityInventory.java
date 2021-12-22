@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
 
-//copied from fabricmc.net
+//copied from fabric official wiki
 public interface CateBlockEntityInventory extends Inventory {
 
     /**
@@ -89,7 +89,7 @@ public interface CateBlockEntityInventory extends Inventory {
      * Replaces the current stack in an inventory slot with the provided stack.
      * @param slot  The inventory slot of which to replace the itemstack.
      * @param stack The replacing itemstack. If the stack is too big for
-     *              this inventory ({@link Inventory#getMaxCountPerStack()}),
+     *              this inventory ({@link Inventory #getMaxCountPerStack()}),
      *              it gets resized to this inventory's maximum amount.
      */
     @Override

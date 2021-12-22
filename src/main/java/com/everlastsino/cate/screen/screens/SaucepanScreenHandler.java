@@ -76,7 +76,7 @@ public class SaucepanScreenHandler extends ScreenHandler {
     }
 
     public int getTimerWidth(){
-        return this.isCooking() ? 20 * (this.getCookingTick() / this.getCookingTime()) + 12 : 12;
+        return this.isCooking() ? 20 * this.getCookingTick() / this.getCookingTime() + 12 : 12;
     }
 
     public int getTemperature(){
