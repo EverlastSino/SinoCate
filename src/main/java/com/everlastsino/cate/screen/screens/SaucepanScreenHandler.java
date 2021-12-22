@@ -8,24 +8,25 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.SmithingScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 public class SaucepanScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    public PropertyDelegate propertyDelegate;
 
-    public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+    public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(CateScreenHandlers.Saucepan_ScreenHandler, syncId);
+        checkDataCount(propertyDelegate, 4);
+        this.propertyDelegate = propertyDelegate;
+        this.addProperties(propertyDelegate);
         checkSize(inventory, 11);
         this.inventory = inventory;
-        //some inventories do custom logic when a player opens it.
         inventory.onOpen(playerInventory.player);
-
-        //This will place the slot in the correct locations for a 3x3 Grid. The slots exist on both server and client!
-        //This will not render the background of the slots however, this is the Screens job
         int m, l;
-        //Our inventory
+        //我们的自定义slot
         for (m = 0; m < 3; ++m){
             this.addSlot(new Slot(inventory, m, 44 + m * 18, 24));
         }
@@ -42,20 +43,40 @@ public class SaucepanScreenHandler extends ScreenHandler {
         }
         this.addSlot(new WaterBucketSlot(inventory, 10, 8, 33));
         this.addSlot(new Slot(inventory, 9, 116, 33));
-        //The player inventory
+        //玩家背包
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
             }
         }
-        //The player Hot bar
+        //玩家hot bar
         for (m = 0; m < 9; ++m) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
     }
 
     public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory, new SimpleInventory(11));
+        this(syncId, playerInventory, new SimpleInventory(11), new ArrayPropertyDelegate(4));
+    }
+
+    public boolean isCooking(){
+        return this.propertyDelegate.get(0) == 1;
+    }
+
+    public boolean isBeating(){
+        return this.propertyDelegate.get(2) == 1;
+    }
+
+    public int getCookingTick(){
+        return this.propertyDelegate.get(1);
+    }
+
+    public int getCookingTime(){
+        return this.propertyDelegate.get(2);
+    }
+
+    public int getTimerWidth(){
+        return (this.isCooking() ? 20 * this.getCookingTick() / this.getCookingTime() : 0) + 12;
     }
 
     @Override

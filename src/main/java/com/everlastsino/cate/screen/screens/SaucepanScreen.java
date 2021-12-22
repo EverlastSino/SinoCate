@@ -1,18 +1,18 @@
 package com.everlastsino.cate.screen.screens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.gui.screen.ingame.FurnaceScreen;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class SaucepanScreen extends HandledScreen<SaucepanScreenHandler> {
 
-    //A path to the gui texture. In this example we use the texture from the dispenser
     private static final Identifier TEXTURE = new Identifier("cate", "textures/gui/container/saucepan.png");
 
     public SaucepanScreen(SaucepanScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -27,6 +27,10 @@ public class SaucepanScreen extends HandledScreen<SaucepanScreenHandler> {
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        this.drawTexture(matrices, this.x + 104, this.y + 51, 176, 36, this.handler.getTimerWidth(), 16);
+        if(this.handler.isBeating()){
+            this.drawTexture(matrices, this.x + 38, this.y + 49, 176, 0, 64, 20);
+        }
     }
 
     @Override
@@ -39,8 +43,7 @@ public class SaucepanScreen extends HandledScreen<SaucepanScreenHandler> {
     @Override
     protected void init() {
         super.init();
-        // Center the title
-        titleX = backgroundWidth - 80;
+        titleX = backgroundWidth - 75;
     }
 
 }

@@ -6,12 +6,10 @@ import com.everlastsino.cate.recipe.CateRecipes;
 import com.everlastsino.cate.recipe.recipes.PotCookingRecipe;
 import com.everlastsino.cate.screen.screens.SaucepanScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CampfireBlock;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -20,6 +18,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -27,10 +26,8 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.tick.TickScheduler;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
 import java.util.List;
 
 enum SaucepanSlots{
@@ -54,8 +51,35 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
     private Ingredient latestResult;
     private float experience;
     private int cookingTime;
-    private boolean isCooking;
-    private int cookingTick;
+    public boolean isCooking;
+    public int cookingTick;
+    protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
+
+        @Override
+        public int get(int index) {
+            switch (index) {
+                case 0 -> { return SaucepanBlockEntity.this.isCooking ? 1 : 0;}
+                case 1 -> { return SaucepanBlockEntity.this.cookingTick;}
+                case 2 -> { return SaucepanBlockEntity.this.cookingTime;}
+                case 3 -> { return SaucepanBlockEntity.this.isBeating() ? 1 : 0;}
+            }
+            return 0;
+        }
+
+        @Override
+        public void set(int index, int value) {
+            switch (index) {
+                case 0 -> SaucepanBlockEntity.this.isCooking = value == 1;
+                case 1 -> SaucepanBlockEntity.this.cookingTick = value;
+                case 2 -> SaucepanBlockEntity.this.cookingTime = value;
+            }
+        }
+
+        @Override
+        public int size() {
+            return 4;
+        }
+    };
 
     public SaucepanBlockEntity(BlockPos pos, BlockState state) {
         super(CateBlockEntities.Saucepan_BlockEntity, pos, state);
@@ -141,8 +165,14 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return true;
     }
 
+    public boolean isBeating(){
+         return this.world != null &&
+                 (this.world.getBlockState(this.pos.down()).isOf(Blocks.CAMPFIRE) || this.world.getBlockState(this.pos.down()).isOf(Blocks.SOUL_CAMPFIRE)) &&
+                this.world.getBlockState(this.pos.down()).get(CampfireBlock.LIT);
+    }
+
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-        if(blockEntity instanceof SaucepanBlockEntity entity && !world.isClient){
+        if(blockEntity instanceof SaucepanBlockEntity entity){
             if(entity.cookingTime == 0){
                 List<PotCookingRecipe> recipes = world.getRecipeManager().listAllOfType(CateRecipes.Pot_Cooking_RecipeType);
                 for (PotCookingRecipe recipe : recipes) {
@@ -160,9 +190,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
             }
             if(entity.getWaterContainer().isOf(Items.WATER_BUCKET) && entity.getContainer().isOf(entity.latestContainer.getItem()) &&
                     entity.getResults().get(0).isOf(Items.AIR) && entity.getResults().get(1).isOf(Items.AIR) && entity.getResults().get(2).isOf(Items.AIR) &&
-                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) &&
-                    (world.getBlockState(pos.down()).isOf(Blocks.CAMPFIRE) || world.getBlockState(pos.down()).isOf(Blocks.SOUL_CAMPFIRE)) &&
-                    world.getBlockState(pos.down()).get(CampfireBlock.LIT)){
+                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) && entity.isBeating()){
                 if(entity.cookingTime == entity.cookingTick){
                     entity.insertResults(entity.latestResult);
                     entity.eraseWater();
@@ -186,7 +214,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inventory, PlayerEntity player) {
-        return new SaucepanScreenHandler(syncId, inventory, this);
+        return new SaucepanScreenHandler(syncId, inventory, this, this.propertyDelegate);
     }
 
     @Override
