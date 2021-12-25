@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-enum SaucepanSlots{
+enum SaucepanSlots {
     INGREDIENT_1,
     INGREDIENT_2,
     INGREDIENT_3,
@@ -59,16 +59,26 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
     public boolean isBeating;
     public int cookingTick;
     public int temperature;
-    protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
+    protected final PropertyDelegate propertyDelegate = new PropertyDelegate() {
 
         @Override
         public int get(int index) {
             switch (index) {
-                case 0 -> { return SaucepanBlockEntity.this.isCooking ? 1 : 0;}
-                case 1 -> { return SaucepanBlockEntity.this.cookingTick;}
-                case 2 -> { return SaucepanBlockEntity.this.cookingTime;}
-                case 3 -> { return SaucepanBlockEntity.this.isBeating ? 1 : 0;}
-                case 4 -> { return SaucepanBlockEntity.this.temperature;}
+                case 0 -> {
+                    return SaucepanBlockEntity.this.isCooking ? 1 : 0;
+                }
+                case 1 -> {
+                    return SaucepanBlockEntity.this.cookingTick;
+                }
+                case 2 -> {
+                    return SaucepanBlockEntity.this.cookingTime;
+                }
+                case 3 -> {
+                    return SaucepanBlockEntity.this.isBeating ? 1 : 0;
+                }
+                case 4 -> {
+                    return SaucepanBlockEntity.this.temperature;
+                }
             }
             return 0;
         }
@@ -99,7 +109,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         this.latestContainer = ItemStack.EMPTY;
     }
 
-    public DefaultedList<ItemStack> getIngredient(){
+    public DefaultedList<ItemStack> getIngredient() {
         DefaultedList<ItemStack> ingredients = DefaultedList.ofSize(6, ItemStack.EMPTY);
         ingredients.set(0, this.inventory.get(SaucepanSlots.INGREDIENT_1.ordinal()));
         ingredients.set(1, this.inventory.get(SaucepanSlots.INGREDIENT_2.ordinal()));
@@ -110,7 +120,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return ingredients;
     }
 
-    public void eraseIngredient(){
+    public void eraseIngredient() {
         this.inventory.get(SaucepanSlots.INGREDIENT_1.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_1.ordinal()).getCount() - 1));
         this.inventory.get(SaucepanSlots.INGREDIENT_2.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_2.ordinal()).getCount() - 1));
         this.inventory.get(SaucepanSlots.INGREDIENT_3.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_3.ordinal()).getCount() - 1));
@@ -120,7 +130,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         this.inventory.get(SaucepanSlots.CONTAINER.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.CONTAINER.ordinal()).getCount() - 1));
     }
 
-    public DefaultedList<ItemStack> getResults(){
+    public DefaultedList<ItemStack> getResults() {
         DefaultedList<ItemStack> ingredients = DefaultedList.ofSize(3, ItemStack.EMPTY);
         ingredients.set(0, this.inventory.get(SaucepanSlots.RESULT_1.ordinal()));
         ingredients.set(1, this.inventory.get(SaucepanSlots.RESULT_2.ordinal()));
@@ -128,24 +138,24 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return ingredients;
     }
 
-    public void insertResults(Ingredient result){
+    public void insertResults(Ingredient result) {
         List<ItemStack> itemStacks = List.of(result.getMatchingStacks());
-        for(int i = 0; i < 3 && i < itemStacks.size(); ++i) {
+        for (int i = 0; i < 3 && i < itemStacks.size(); ++i) {
             int p = i + SaucepanSlots.RESULT_1.ordinal();
             this.inventory.set(p, itemStacks.get(i).copy());
         }
     }
 
-    public ItemStack getContainer(){
+    public ItemStack getContainer() {
         return this.inventory.get(SaucepanSlots.CONTAINER.ordinal());
     }
 
-    public ItemStack getWaterContainer(){
+    public ItemStack getWaterContainer() {
         return this.inventory.get(SaucepanSlots.WATER_CONTAINER.ordinal());
     }
 
-    public void eraseWater(){
-        if(this.inventory.get(SaucepanSlots.WATER_CONTAINER.ordinal()).isOf(Items.WATER_BUCKET)){
+    public void eraseWater() {
+        if (this.inventory.get(SaucepanSlots.WATER_CONTAINER.ordinal()).isOf(Items.WATER_BUCKET)) {
             this.inventory.set(SaucepanSlots.WATER_CONTAINER.ordinal(), new ItemStack(Items.BUCKET));
         }
     }
@@ -155,7 +165,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return this.inventory;
     }
 
-    public boolean compareList(List<ItemStack> itemStacks1, List<ItemStack> itemStacks2){
+    public boolean compareList(List<ItemStack> itemStacks1, List<ItemStack> itemStacks2) {
         int realSize = 0;
         for (ItemStack stack1 : itemStacks2) {
             realSize += stack1.isOf(Items.AIR) ? 0 : 1;
@@ -174,26 +184,26 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         return true;
     }
 
-    public void updateBeatingSituation(){
-         this.isBeating = this.world != null &&
-                 (this.world.getBlockState(this.pos.down()).isOf(Blocks.CAMPFIRE) || this.world.getBlockState(this.pos.down()).isOf(Blocks.SOUL_CAMPFIRE)) &&
+    public void updateBeatingSituation() {
+        this.isBeating = this.world != null &&
+                (this.world.getBlockState(this.pos.down()).isOf(Blocks.CAMPFIRE) || this.world.getBlockState(this.pos.down()).isOf(Blocks.SOUL_CAMPFIRE)) &&
                 this.world.getBlockState(this.pos.down()).get(CampfireBlock.LIT);
-         this.temperature = this.isBeating ? 75 : 20;
+        this.temperature = this.isBeating ? 75 : 20;
     }
 
     private static void dropExperience(ServerWorld world, Vec3d pos, float experience) {
         int i = MathHelper.floor(experience);
         float f = MathHelper.fractionalPart(experience);
-        if (f != 0.0f && Math.random() < (double)f) {
+        if (f != 0.0f && Math.random() < (double) f) {
             ++i;
         }
         ExperienceOrbEntity.spawn(world, pos, i);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-        if(blockEntity instanceof SaucepanBlockEntity entity){
+        if (blockEntity instanceof SaucepanBlockEntity entity) {
             entity.updateBeatingSituation();
-            if(entity.cookingTime == 0){
+            if (entity.cookingTime == 0) {
                 List<PotCookingRecipe> recipes = world.getRecipeManager().listAllOfType(CateRecipes.Pot_Cooking_RecipeType);
                 for (PotCookingRecipe recipe : recipes) {
                     if (recipe.check(entity.getIngredient(), entity.getContainer())) {
@@ -207,10 +217,10 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                     }
                 }
             }
-            if(entity.getWaterContainer().isOf(Items.WATER_BUCKET) && entity.getContainer().isOf(entity.latestContainer.getItem()) &&
+            if (entity.getWaterContainer().isOf(Items.WATER_BUCKET) && entity.getContainer().isOf(entity.latestContainer.getItem()) &&
                     entity.getResults().get(0).isOf(Items.AIR) && entity.getResults().get(1).isOf(Items.AIR) && entity.getResults().get(2).isOf(Items.AIR) &&
-                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) && entity.isBeating){
-                if(entity.cookingTime == entity.cookingTick){
+                    entity.compareList(List.of(entity.latestIngredient.getMatchingStacks()), entity.getIngredient()) && entity.isBeating) {
+                if (entity.cookingTime == entity.cookingTick) {
                     entity.insertResults(entity.latestResult);
                     entity.eraseWater();
                     entity.eraseIngredient();
@@ -220,7 +230,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
                 }
                 entity.isCooking = true;
                 entity.cookingTick++;
-            }else{
+            } else {
                 entity.cookingTick = entity.cookingTime = 0;
                 entity.isCooking = false;
             }
@@ -250,7 +260,7 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
         this.cookingTick = nbt.getInt("cooking_tick");
         this.cookingTime = nbt.getInt("cooking_time");
         this.experience = nbt.getFloat("experience");
-        if(this.world != null){
+        if (this.world != null) {
             List<PotCookingRecipe> recipes = this.world.getRecipeManager().listAllOfType(CateRecipes.Pot_Cooking_RecipeType);
             for (PotCookingRecipe recipe : recipes) {
                 if (recipe.check(this.getIngredient(), this.getContainer())) {

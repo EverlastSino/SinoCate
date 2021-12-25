@@ -4,16 +4,14 @@ import com.everlastsino.cate.item.CateItems;
 import net.minecraft.block.CropBlock;
 import net.minecraft.item.ItemConvertible;
 
-public class PaddySeedlingBlock extends CropBlock {
+public class GingerBlock extends CropBlock {
 
-    public PaddySeedlingBlock(Settings settings) {
+    public GingerBlock(Settings settings) {
         super(settings);
     }
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return CateItems.Rough_Rice;
+        return CateItems.Ginger;
     }
-
 }
-

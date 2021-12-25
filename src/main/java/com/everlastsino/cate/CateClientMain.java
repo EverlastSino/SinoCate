@@ -1,5 +1,6 @@
 package com.everlastsino.cate;
 
+import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.entity.renderer.renderers.OysterEntityRenderer;
@@ -19,6 +20,10 @@ public class CateClientMain implements ClientModInitializer {
         //透明方块材质
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Paddy, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Paddy_Seedling, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Adzuki_Bean, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Ginger, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CateBlocks.Osmanthus_Tree_Sapling, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CateBlocks.Osmanthus_Tree_Leaves, RenderLayer.getCutout());
 
         //实体渲染
         EntityRendererRegistry.register(CateEntities.Oyster_Entity, OysterEntityRenderer::new);
