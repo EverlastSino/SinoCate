@@ -14,6 +14,7 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -121,12 +122,16 @@ public class SaucepanBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     public void eraseIngredient() {
-        this.inventory.get(SaucepanSlots.INGREDIENT_1.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_1.ordinal()).getCount() - 1));
-        this.inventory.get(SaucepanSlots.INGREDIENT_2.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_2.ordinal()).getCount() - 1));
-        this.inventory.get(SaucepanSlots.INGREDIENT_3.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_3.ordinal()).getCount() - 1));
-        this.inventory.get(SaucepanSlots.INGREDIENT_4.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_4.ordinal()).getCount() - 1));
-        this.inventory.get(SaucepanSlots.INGREDIENT_5.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_5.ordinal()).getCount() - 1));
-        this.inventory.get(SaucepanSlots.INGREDIENT_6.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.INGREDIENT_6.ordinal()).getCount() - 1));
+        for (int i = 0; i < 6; ++i){
+            ItemStack stack = this.inventory.get(i);
+            if (stack.isEmpty() || stack.getCount() <= 0) continue;
+            if (stack.getMaxCount() == 1){
+                ItemStack remainder = stack.getItem().hasRecipeRemainder() ? new ItemStack(stack.getItem().getRecipeRemainder()) : ItemStack.EMPTY;
+                this.inventory.set(i, remainder);
+            }else{
+                stack.decrement(1);
+            }
+        }
         this.inventory.get(SaucepanSlots.CONTAINER.ordinal()).setCount(Math.max(0, this.inventory.get(SaucepanSlots.CONTAINER.ordinal()).getCount() - 1));
     }
 

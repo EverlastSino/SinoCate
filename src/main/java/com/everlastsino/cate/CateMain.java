@@ -14,20 +14,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CateMain implements ModInitializer {
-	public static final Logger CateLogger = LogManager.getLogger("SinoCate");
+	public static final Logger CateLogger = LogManager.getLogger("SinoCateServer");
 
 	@Override
 	public void onInitialize() {
-		CateLogger.info("Ready to register objects. This is a wish from EverlastSino Team ^_^!");
+		CateLogger.info("Ready to register objects. Best wishes from EverlastSino Team ^_^!");
 
 		CateCrops.registerCropBlocks();
-		CateBlockEntities.createBlockEntities();
-		CateBlocks.registerBlocks();
-		CateFlammableBlockRegister.register();
 		CateScreenHandlers.registerScreenHandlers();
+		CateBlocks.registerBlocks();
+		CateBlockEntities.createBlockEntities();
+		CateFlammableBlockRegister.register();
+
 		CateItems.registerItems();
+
 		CateEntities.registerEntities();
+
 		CateRecipes.registerRecipes();
+
 		CateFeatures.registerFeatures();
 
 		CateLogger.info("Successfully loaded SinoCate Mod for fabric.");

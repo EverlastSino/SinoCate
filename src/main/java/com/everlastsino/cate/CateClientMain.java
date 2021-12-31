@@ -11,12 +11,17 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Environment(EnvType.CLIENT)
 public class CateClientMain implements ClientModInitializer {
+    public static final Logger LOGGER = LogManager.getLogger("SinoCateClient");
 
     @Override
     public void onInitializeClient() {
+        LOGGER.info("Start to initialize client settings.");
+
         //透明方块材质
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Paddy, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Paddy_Seedling, RenderLayer.getCutout());
@@ -30,6 +35,8 @@ public class CateClientMain implements ClientModInitializer {
 
         //gui注册
         CateScreens.registerScreens();
+
+        LOGGER.info("Successfully initialized!");
     }
 
 }

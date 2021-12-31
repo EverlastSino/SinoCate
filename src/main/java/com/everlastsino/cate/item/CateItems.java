@@ -5,10 +5,10 @@ import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.lwjgl.system.CallbackI;
 
 public class CateItems {
     //普通物品
@@ -21,6 +21,11 @@ public class CateItems {
 
     //调味品
     public static final Item Oyster_Sauce = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
+    //熟食区
+    public static final Item Osmanthus_Adzuki_Bean_Porridge = new Item(
+            new FabricItemSettings().group(CateItemGroups.CateGroup).food(
+                    new FoodComponent.Builder().hunger(4).saturationModifier(2.0F).build()));
 
     //方块物品
     //普通方块
@@ -58,6 +63,9 @@ public class CateItems {
 
         //调味品
         Registry.register(Registry.ITEM, new Identifier("cate", "oyster_sauce"), Oyster_Sauce);
+
+        //熟食区
+        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_adzuki_bean_porridge"), Osmanthus_Adzuki_Bean_Porridge);
 
         //方块物品
         //普通方块

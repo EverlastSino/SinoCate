@@ -14,11 +14,11 @@ public class CateBlocks {
 
     //功能方块
     public static final Block Saucepan = new SaucepanBlock(
-            FabricBlockSettings.of(Material.METAL).sounds(BlockSoundGroup.STONE));
+            FabricBlockSettings.of(Material.METAL).strength(1.0f, 1.0f).sounds(BlockSoundGroup.STONE));
 
     //草木
     public static final Block Osmanthus_Tree_Sapling = new OsmanthusTreeSaplingBlock(
-            FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).noCollision().nonOpaque());
+            FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).noCollision().nonOpaque().breakInstantly());
     public static final Block Osmanthus_Tree_Leaves = new OsmanthusTreeLeavesBlock(
             FabricBlockSettings.of(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
 

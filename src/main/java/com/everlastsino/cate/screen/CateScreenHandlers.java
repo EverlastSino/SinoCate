@@ -9,6 +9,7 @@ public class CateScreenHandlers {
     public static ScreenHandlerType<SaucepanScreenHandler> Saucepan_ScreenHandler;
 
     public static void registerScreenHandlers(){
-        Saucepan_ScreenHandler = ScreenHandlerRegistry.registerExtended(new Identifier("cate", "saucepan_screen_handler"), SaucepanScreenHandler::new);
+        Saucepan_ScreenHandler = ScreenHandlerRegistry.registerExtended(
+                new Identifier("cate", "saucepan_screen_handler"), SaucepanScreenHandler::new);
     }
 }

@@ -3,5 +3,8 @@
   "block.cate.paddy":"Grown Paddy Seedling",
   "block.cate.paddy_seedling":"Rough Rice",
   "block.cate.saucepan":"Saucepan",
-  "item.cate.paddy_straw":"Paddy Straw"
+  "item.cate.paddy_straw":"Paddy Straw",
+  "item.cate.osmanthus":"Osmanthus",
+  "item.cate.oyster":"Oyster",
+  "item.cate.oyster_sauce":"Oyster Sauce"
 }

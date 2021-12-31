@@ -58,7 +58,6 @@ public class SaucepanScreenHandler extends ScreenHandler {
     public SaucepanScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
         this(syncId, playerInventory, new SimpleInventory(11), new ArrayPropertyDelegate(5));
     }
-
     public boolean isCooking(){
         return this.propertyDelegate.get(0) == 1;
     }
