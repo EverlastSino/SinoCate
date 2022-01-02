@@ -27,8 +27,10 @@ public class CateClientMain implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Paddy_Seedling, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Adzuki_Bean, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CateCrops.Ginger, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(CateBlocks.Osmanthus_Tree_Sapling, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(CateBlocks.Osmanthus_Tree_Leaves, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(CateBlocks.Wooden_Sieve, RenderLayer.getCutout());
 
         //实体渲染
         EntityRendererRegistry.register(CateEntities.Oyster_Entity, OysterEntityRenderer::new);

@@ -30,7 +30,7 @@ public class SaucepanBlock extends BlockWithEntity{
 
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 12.0D, 15.0D),
+            Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 11.0D, 15.0D),
             Block.createCuboidShape(0.0D, 9.0D, 6.0D, 1.0D, 10.0D, 10.0D),
             Block.createCuboidShape(15.0D, 9.0D, 6.0D, 16.0D, 10.0D, 10.0D),
             Block.createCuboidShape(6.0D, 11.0D, 7.0D, 7.0D, 12.0D, 9.0D),
@@ -38,7 +38,7 @@ public class SaucepanBlock extends BlockWithEntity{
             Block.createCuboidShape(6.0D, 12.0D, 7.0D, 10.0D, 13.0D, 9.0D)
     );
     public static final VoxelShape SHAPE_TURNED = VoxelShapes.union(
-            Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 12.0D, 15.0D),
+            Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 11.0D, 15.0D),
             Block.createCuboidShape(6.0D, 9.0D, 0.0D, 10.0D, 10.0D, 1.0D),
             Block.createCuboidShape(6.0D, 9.0D, 15.0D, 10.0D, 10.0D, 16.0D),
             Block.createCuboidShape(7.0D, 11.0D, 6.0D, 9.0D, 12.0D, 7.0D),
@@ -54,6 +54,11 @@ public class SaucepanBlock extends BlockWithEntity{
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 
     @Override
@@ -114,6 +119,4 @@ public class SaucepanBlock extends BlockWithEntity{
         }
     }
 
-
 }
-

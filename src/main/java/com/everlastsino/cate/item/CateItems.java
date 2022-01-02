@@ -16,6 +16,9 @@ public class CateItems {
     public static final Item Paddy_Straw = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Osmanthus = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
+    //食材
+    public static final Item Rice = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
     //猎物
     public static final Item Oyster = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
@@ -31,11 +34,16 @@ public class CateItems {
     //普通方块
     public static final BlockItem Saucepan = new BlockItem(CateBlocks.Saucepan,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Wooden_Sieve = new BlockItem(CateBlocks.Wooden_Sieve,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
+
 
     //草木
     public static final BlockItem Osmanthus_Tree_Sapling = new BlockItem(CateBlocks.Osmanthus_Tree_Sapling,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Osmanthus_Tree_Leaves = new BlockItem(CateBlocks.Osmanthus_Tree_Leaves,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Osmanthus_Tree_Log = new BlockItem(CateBlocks.Osmanthus_tree_Log,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //作物
@@ -58,6 +66,9 @@ public class CateItems {
         Registry.register(Registry.ITEM, new Identifier("cate", "paddy_straw"), Paddy_Straw);
         Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus"), Osmanthus);
 
+        //食材
+        Registry.register(Registry.ITEM, new Identifier("cate", "rice"), Rice);
+
         //猎物
         Registry.register(Registry.ITEM, new Identifier("cate", "oyster"), Oyster);
 
@@ -70,10 +81,12 @@ public class CateItems {
         //方块物品
         //普通方块
         Registry.register(Registry.ITEM, new Identifier("cate", "saucepan"), Saucepan);
+        Registry.register(Registry.ITEM, new Identifier("cate", "wooden_sieve"), Wooden_Sieve);
 
         //草木
         Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_sapling"), Osmanthus_Tree_Sapling);
         Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_leaves"), Osmanthus_Tree_Leaves);
+        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_log"), Osmanthus_Tree_Log);
 
         //作物
         //耕地

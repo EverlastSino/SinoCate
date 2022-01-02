@@ -4,7 +4,6 @@ import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.blocks.OsmanthusTreeLeavesBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -28,7 +27,7 @@ public class CateFeatures {
     }
 
     //configs
-    public static final TreeFeatureConfig.Builder Osmanthus_Tree_Config = treeConfigBuilder(Blocks.OAK_LOG,
+    public static final TreeFeatureConfig.Builder Osmanthus_Tree_Config = treeConfigBuilder(CateBlocks.Osmanthus_tree_Log,
             new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(CateBlocks.Osmanthus_Tree_Leaves.getDefaultState(), 2)
                     .add(CateBlocks.Osmanthus_Tree_Leaves.getDefaultState().with(OsmanthusTreeLeavesBlock.GROWABLE, true), 1)),
             5, 2, 0, 2).ignoreVines();

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "cate:osmanthus_tree_log"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_log",
+    "count": 2
+  }
+}

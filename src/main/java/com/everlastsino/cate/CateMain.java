@@ -1,6 +1,7 @@
 package com.everlastsino.cate;
 
 import com.everlastsino.cate.api.CateFlammableBlockRegister;
+import com.everlastsino.cate.api.CateFuelItemRegister;
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
@@ -27,6 +28,7 @@ public class CateMain implements ModInitializer {
 		CateFlammableBlockRegister.register();
 
 		CateItems.registerItems();
+		CateFuelItemRegister.register();
 
 		CateEntities.registerEntities();
 
