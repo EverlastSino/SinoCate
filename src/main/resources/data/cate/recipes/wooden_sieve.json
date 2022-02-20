@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "$$$",
-    "# #",
+    "###",
     "###"
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:stick"
     },
     "$": {
       "tag": "minecraft:planks"

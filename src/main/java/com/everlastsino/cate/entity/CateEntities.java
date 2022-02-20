@@ -11,15 +11,12 @@ import net.minecraft.util.registry.Registry;
 
 public class CateEntities{
 
-    public static EntityType<OysterEntity> Oyster_Entity;
+    public static EntityType<OysterEntity> Oyster_Entity = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier("cate", "oyster"),
+            FabricEntityTypeBuilder.createLiving().entityFactory(OysterEntity::new).spawnGroup(SpawnGroup.WATER_AMBIENT)
+                    .defaultAttributes(() -> OysterEntity.createMobAttributes()
+                            .add(EntityAttributes.GENERIC_MAX_HEALTH, 12))
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.25f)).build()
+    );
 
-    public static void registerEntities(){
-         Oyster_Entity = Registry.register(
-                Registry.ENTITY_TYPE, new Identifier("cate", "oyster"),
-                FabricEntityTypeBuilder.createLiving().entityFactory(OysterEntity::new).spawnGroup(SpawnGroup.WATER_AMBIENT)
-                        .defaultAttributes(() -> OysterEntity.createMobAttributes()
-                                .add(EntityAttributes.GENERIC_MAX_HEALTH, 12))
-                        .dimensions(EntityDimensions.fixed(0.5f, 0.25f)).build()
-         );
-    }
 }

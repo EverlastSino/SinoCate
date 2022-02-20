@@ -30,8 +30,6 @@ public class CateMain implements ModInitializer {
 		CateItems.registerItems();
 		CateFuelItemRegister.register();
 
-		CateEntities.registerEntities();
-
 		CateRecipes.registerRecipes();
 
 		CateFeatures.registerFeatures();

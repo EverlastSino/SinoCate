@@ -12,7 +12,9 @@
   "item.cate.paddy_straw":"稻",
   "item.cate.osmanthus":"桂花",
   "item.cate.oyster":"牡蛎",
+  "item.cate.cooked_oyster":"熟牡蛎",
   "item.cate.oyster_sauce":"蚝油",
   "item.cate.rice":"大米",
-  "item.cate.osmanthus_adzuki_bean_porridge":"桂花赤豆糊"
+  "item.cate.osmanthus_adzuki_bean_porridge":"桂花赤豆糊",
+  "item.cate.oyster_spawn_egg":"牡蛎刷怪蛋"
 }

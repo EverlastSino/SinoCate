@@ -2,12 +2,10 @@ package com.everlastsino.cate.item;
 
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
+import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.StewItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -30,6 +28,11 @@ public class CateItems {
     public static final Item Osmanthus_Adzuki_Bean_Porridge = new StewItem(
             new FabricItemSettings().group(CateItemGroups.CateGroup).food(
                     new FoodComponent.Builder().hunger(4).saturationModifier(2.0F).build()));
+    public static final Item Cooked_Oyster = new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(FoodComponents.COOKED_SALMON));
+
+    //刷怪蛋
+    public static final Item Oyster_Spawn_Egg = new SpawnEggItem(CateEntities.Oyster_Entity,
+            0x4f6a74, 0xbdbfa0, new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //方块物品
     //普通方块
@@ -78,6 +81,10 @@ public class CateItems {
 
         //熟食区
         Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_adzuki_bean_porridge"), Osmanthus_Adzuki_Bean_Porridge);
+        Registry.register(Registry.ITEM, new Identifier("cate", "cooked_oyster"), Cooked_Oyster);
+
+        //刷怪蛋
+        Registry.register(Registry.ITEM, new Identifier("cate", "oyster_spawn_egg"), Oyster_Spawn_Egg);
 
         //方块物品
         //普通方块

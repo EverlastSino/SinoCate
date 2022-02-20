@@ -28,12 +28,12 @@ public class OysterEntity extends WaterCreatureEntity {
     }
 
     public int getMaxAir() {
-        return 2 << 10;
+        return 20 * 60 * 2;
     }
 
     protected void initGoals() {
-        this.goalSelector.add(0, new EscapeLandGoal(this, 0.2D));
-        this.goalSelector.add(0, new EscapeDangerGoal(this, 0.2D));
+        this.goalSelector.add(0, new EscapeLandGoal(this, 0.1D));
+        this.goalSelector.add(0, new EscapeDangerGoal(this, 0.1D));
         this.goalSelector.add(1, new LookAroundGoal(this));
         this.goalSelector.add(1, new WanderAroundGoal(this, 0.1D));
     }
