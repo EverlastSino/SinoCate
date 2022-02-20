@@ -34,30 +34,27 @@ public class OsmanthusTreeLeavesBlock extends LeavesBlock {
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return state.get(PERSISTENT) && state.get(GROWABLE) && state.get(AGE) < 1;
+        return true;
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.randomTick(state, world, pos, random);
-        if (random.nextInt(world.isRaining() ? 30 : 60) == 0){
-            world.setBlockState(pos, this.getDefaultState().with(AGE, 1));
+        if (state.get(GROWABLE) && state.get(AGE) < 1 && random.nextInt(world.isRaining() ? 30 : 60) == 0){
+            world.setBlockState(pos, state.with(AGE, 1));
         }
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (state.get(PERSISTENT) && state.get(GROWABLE) && state.get(AGE) == 1){
+        if (!state.get(PERSISTENT) && state.get(GROWABLE) && state.get(AGE) == 1){
             if (itemStack.isOf(Items.SHEARS)){
-                itemStack.setDamage(itemStack.getDamage() - 1);
-                if (itemStack.getDamage() <= 0){
-                    itemStack.decrement(1);
-                }
+                itemStack.damage(1, player, p -> p.sendToolBreakStatus(hand));
                 dropOsmanthus(world, pos);
+                world.setBlockState(pos, state.with(AGE, 0));
+                return ActionResult.SUCCESS;
             }
-            dropOsmanthus(world, pos);
-            world.setBlockState(pos, this.getDefaultState().with(AGE, 0));
         }
         return super.onUse(state, world, pos, player, hand, hit);
     }

@@ -28,7 +28,7 @@ public class CateFeatures {
 
     //configs
     public static final TreeFeatureConfig.Builder Osmanthus_Tree_Config = treeConfigBuilder(CateBlocks.Osmanthus_tree_Log,
-            new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(CateBlocks.Osmanthus_Tree_Leaves.getDefaultState(), 2)
+            new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(CateBlocks.Osmanthus_Tree_Leaves.getDefaultState(), 1)
                     .add(CateBlocks.Osmanthus_Tree_Leaves.getDefaultState().with(OsmanthusTreeLeavesBlock.GROWABLE, true), 1)),
             5, 2, 0, 2).ignoreVines();
 

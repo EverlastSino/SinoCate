@@ -55,6 +55,7 @@ public class OysterEntity extends WaterCreatureEntity {
     public boolean canSpawn(WorldAccess world, SpawnReason spawnReason) {
         return world.getFluidState(this.getBlockPos()).isIn(FluidTags.WATER);
     }
+
 }
 
 class EscapeLandGoal extends Goal {

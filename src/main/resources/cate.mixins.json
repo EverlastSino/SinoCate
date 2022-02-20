@@ -4,6 +4,7 @@
   "package": "com.everlastsino.cate.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "CateEntityGens",
     "CateTreeGens"
   ],
   "client": [

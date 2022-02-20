@@ -3,5 +3,16 @@
   "block.cate.paddy":"秧",
   "block.cate.paddy_seedling":"稻谷",
   "block.cate.saucepan":"煮锅",
-  "item.cate.paddy_straw":"稻"
+  "block.cate.wooden_sieve":"木筛",
+  "block.cate.osmanthus_tree_sapling":"桂花树苗",
+  "block.cate.osmanthus_tree_leaves":"桂花树叶",
+  "block.cate.osmanthus_tree_log":"桂花树原木",
+  "block.cate.adzuki_bean":"红豆",
+  "block.cate.ginger":"生姜",
+  "item.cate.paddy_straw":"稻",
+  "item.cate.osmanthus":"桂花",
+  "item.cate.oyster":"牡蛎",
+  "item.cate.oyster_sauce":"蚝油",
+  "item.cate.rice":"大米",
+  "item.cate.osmanthus_adzuki_bean_porridge":"桂花赤豆糊"
 }

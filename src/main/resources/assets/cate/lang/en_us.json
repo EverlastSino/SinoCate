@@ -3,8 +3,16 @@
   "block.cate.paddy":"Grown Paddy Seedling",
   "block.cate.paddy_seedling":"Rough Rice",
   "block.cate.saucepan":"Saucepan",
+  "block.cate.wooden_sieve":"Wooden Sieve",
+  "block.cate.osmanthus_tree_sapling":"Osmanthus Tree Sapling",
+  "block.cate.osmanthus_tree_leaves":"Osmanthus Tree Leaves",
+  "block.cate.osmanthus_tree_log":"Osmanthus Tree Log",
+  "block.cate.adzuki_bean":"Adzuki Bean",
+  "block.cate.ginger":"Ginger",
   "item.cate.paddy_straw":"Paddy Straw",
   "item.cate.osmanthus":"Osmanthus",
   "item.cate.oyster":"Oyster",
-  "item.cate.oyster_sauce":"Oyster Sauce"
+  "item.cate.oyster_sauce":"Oyster Sauce",
+  "item.cate.rice":"Rice",
+  "item.cate.osmanthus_adzuki_bean_porridge":"Osmanthus Adzuki Bean Porridge"
 }

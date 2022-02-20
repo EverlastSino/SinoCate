@@ -37,6 +37,7 @@ public class CateMain implements ModInitializer {
 		CateFeatures.registerFeatures();
 
 		CateLogger.info("Successfully loaded SinoCate Mod for fabric.");
+
 	}
 
 }

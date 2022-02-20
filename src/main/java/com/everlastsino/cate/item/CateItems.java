@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.StewItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -26,7 +27,7 @@ public class CateItems {
     public static final Item Oyster_Sauce = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //熟食区
-    public static final Item Osmanthus_Adzuki_Bean_Porridge = new Item(
+    public static final Item Osmanthus_Adzuki_Bean_Porridge = new StewItem(
             new FabricItemSettings().group(CateItemGroups.CateGroup).food(
                     new FoodComponent.Builder().hunger(4).saturationModifier(2.0F).build()));
 
