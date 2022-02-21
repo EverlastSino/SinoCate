@@ -2,10 +2,7 @@ package com.everlastsino.cate.block;
 
 import com.everlastsino.cate.block.blocks.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
-import net.minecraft.block.PillarBlock;
+import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -32,15 +29,26 @@ public class CateBlocks {
             FabricBlockSettings.of(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
     public static final Block Osmanthus_tree_Log = createLogBlock(MapColor.GOLD, MapColor.ORANGE);
 
+    //矿石
+    public static final Block Rock_Salt_Ore = new OreBlock(
+            FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f));
+
     public static void registerBlocks(){
         //功能方块
-        Registry.register(Registry.BLOCK, new Identifier("cate", "saucepan"), Saucepan);
-        Registry.register(Registry.BLOCK, new Identifier("cate", "wooden_sieve"), Wooden_Sieve);
+        registerBlock("saucepan", Saucepan);
+        registerBlock("wooden_sieve", Wooden_Sieve);
 
         //草木
-        Registry.register(Registry.BLOCK, new Identifier("cate", "osmanthus_tree_sapling"), Osmanthus_Tree_Sapling);
-        Registry.register(Registry.BLOCK, new Identifier("cate", "osmanthus_tree_leaves"), Osmanthus_Tree_Leaves);
-        Registry.register(Registry.BLOCK, new Identifier("cate", "osmanthus_tree_log"), Osmanthus_tree_Log);
+        registerBlock("osmanthus_tree_sapling", Osmanthus_Tree_Sapling);
+        registerBlock("osmanthus_tree_leaves", Osmanthus_Tree_Leaves);
+        registerBlock("osmanthus_tree_log", Osmanthus_tree_Log);
 
+        //矿石
+        registerBlock("rock_salt_ore", Rock_Salt_Ore);
+
+    }
+
+    private static void registerBlock(String name, Block block) {
+        Registry.register(Registry.BLOCK, new Identifier("cate", name), block);
     }
 }

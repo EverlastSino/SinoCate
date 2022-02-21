@@ -23,6 +23,8 @@ public class CateItems {
 
     //调味品
     public static final Item Oyster_Sauce = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final Item Salt = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final Item Salt_Bucket = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //熟食区
     public static final Item Osmanthus_Adzuki_Bean_Porridge = new StewItem(
@@ -67,43 +69,49 @@ public class CateItems {
     public static void registerItems(){
         //普通物品
         //农副产品
-        Registry.register(Registry.ITEM, new Identifier("cate", "paddy_straw"), Paddy_Straw);
-        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus"), Osmanthus);
+        registerItem("paddy_straw", Paddy_Straw);
+        registerItem("osmanthus", Osmanthus);
 
         //食材
-        Registry.register(Registry.ITEM, new Identifier("cate", "rice"), Rice);
+        registerItem("rice", Rice);
 
         //猎物
-        Registry.register(Registry.ITEM, new Identifier("cate", "oyster"), Oyster);
+        registerItem("oyster", Oyster);
 
         //调味品
-        Registry.register(Registry.ITEM, new Identifier("cate", "oyster_sauce"), Oyster_Sauce);
+        registerItem("oyster_sauce", Oyster_Sauce);
+        registerItem("salt", Salt);
+        registerItem("salt_bucket", Salt_Bucket);
 
         //熟食区
-        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_adzuki_bean_porridge"), Osmanthus_Adzuki_Bean_Porridge);
-        Registry.register(Registry.ITEM, new Identifier("cate", "cooked_oyster"), Cooked_Oyster);
+        registerItem("osmanthus_adzuki_bean_porridge", Osmanthus_Adzuki_Bean_Porridge);
+        registerItem("cooked_oyster", Cooked_Oyster);
 
         //刷怪蛋
-        Registry.register(Registry.ITEM, new Identifier("cate", "oyster_spawn_egg"), Oyster_Spawn_Egg);
+        registerItem("oyster_spawn_egg", Oyster_Spawn_Egg);
 
         //方块物品
         //普通方块
-        Registry.register(Registry.ITEM, new Identifier("cate", "saucepan"), Saucepan);
-        Registry.register(Registry.ITEM, new Identifier("cate", "wooden_sieve"), Wooden_Sieve);
+        registerItem("saucepan", Saucepan);
+        registerItem("wooden_sieve", Wooden_Sieve);
 
         //草木
-        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_sapling"), Osmanthus_Tree_Sapling);
-        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_leaves"), Osmanthus_Tree_Leaves);
-        Registry.register(Registry.ITEM, new Identifier("cate", "osmanthus_tree_log"), Osmanthus_Tree_Log);
+        registerItem("osmanthus_tree_sapling", Osmanthus_Tree_Sapling);
+        registerItem("osmanthus_tree_leaves", Osmanthus_Tree_Leaves);
+        registerItem("osmanthus_tree_log", Osmanthus_Tree_Log);
 
         //作物
         //耕地
-        Registry.register(Registry.ITEM, new Identifier("cate", "rough_rice"), Rough_Rice);
-        Registry.register(Registry.ITEM, new Identifier("cate", "adzuki_bean"), Adzuki_Bean);
-        Registry.register(Registry.ITEM, new Identifier("cate", "ginger"), Ginger);
+        registerItem("rough_rice", Rough_Rice);
+        registerItem("adzuki_bean", Adzuki_Bean);
+        registerItem("ginger", Ginger);
 
         //非耕地
-        Registry.register(Registry.ITEM, new Identifier("cate", "grown_paddy_seedling"), Grown_Paddy_Seedling);
+        registerItem("grown_paddy_seedling", Grown_Paddy_Seedling);
+    }
+
+    private static void registerItem(String name, Item item) {
+        Registry.register(Registry.ITEM, new Identifier("cate", name), item);
     }
 
 }
