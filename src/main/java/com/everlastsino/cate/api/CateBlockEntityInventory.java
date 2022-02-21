@@ -6,8 +6,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
-
-//copied from fabric official wiki
+//from fabric official wiki
 public interface CateBlockEntityInventory extends Inventory {
 
     /**
