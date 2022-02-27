@@ -9,6 +9,11 @@
   "block.cate.osmanthus_tree_log":"桂花树原木",
   "block.cate.adzuki_bean":"红豆",
   "block.cate.ginger":"生姜",
+  "block.cate.salt_block":"食盐块",
+  "block.cate.evaporation_pan":"蒸发皿",
+  "block.cate.rock_salt_ore":"岩盐桶",
+  "block.cate.cutting_board":"砧板",
+  "block.cate.stone_mill":"石磨",
   "item.cate.paddy_straw":"稻",
   "item.cate.osmanthus":"桂花",
   "item.cate.oyster":"牡蛎",
@@ -16,5 +21,13 @@
   "item.cate.oyster_sauce":"蚝油",
   "item.cate.rice":"大米",
   "item.cate.osmanthus_adzuki_bean_porridge":"桂花赤豆糊",
-  "item.cate.oyster_spawn_egg":"牡蛎刷怪蛋"
+  "item.cate.oyster_spawn_egg":"牡蛎刷怪蛋",
+  "item.cate.kitchen_knife":"厨刀",
+  "item.cate.dough":"面团",
+  "item.cate.flour":"面粉",
+  "item.cate.tang_yuan":"汤圆",
+  "item.cate.salt":"食盐",
+  "item.cate.salt_bucket":"食盐桶",
+  "item.cate.tooltip.tang_yuan":"中华传统美食——汤圆",
+  "entity.cate.oyster":"牡蛎"
 }

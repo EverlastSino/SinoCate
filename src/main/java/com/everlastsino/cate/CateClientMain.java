@@ -2,6 +2,8 @@ package com.everlastsino.cate;
 
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
+import com.everlastsino.cate.blockEntity.CateBlockEntities;
+import com.everlastsino.cate.blockEntity.blockEntities.renderers.CuttingBoardBlockEntityRenderer;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.entity.renderer.renderers.OysterEntityRenderer;
 import com.everlastsino.cate.screen.CateScreens;
@@ -9,6 +11,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +40,9 @@ public class CateClientMain implements ClientModInitializer {
 
         //gui注册
         CateScreens.registerScreens();
+
+        //方块实体
+        BlockEntityRendererRegistry.register(CateBlockEntities.Cutting_Board_BlockEntity, CuttingBoardBlockEntityRenderer::new);
 
         LOGGER.info("Successfully initialized!");
     }

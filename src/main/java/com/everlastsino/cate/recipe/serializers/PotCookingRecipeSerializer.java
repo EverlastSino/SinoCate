@@ -15,7 +15,6 @@ public record PotCookingRecipeSerializer<T extends PotCookingRecipe>(
         com.everlastsino.cate.recipe.serializers.PotCookingRecipeSerializer.RecipeFactory<T> recipeFactory) implements RecipeSerializer<T> {
 
     public T read(Identifier identifier, JsonObject jsonObject) {
-        String group = JsonHelper.getString(jsonObject, "group", "");
         JsonElement ingredientJsonElement = JsonHelper.hasArray(jsonObject, "ingredient") ?
                 JsonHelper.getArray(jsonObject, "ingredient") : JsonHelper.getObject(jsonObject, "ingredient");
         Ingredient ingredient = Ingredient.fromJson(ingredientJsonElement);
@@ -27,21 +26,19 @@ public record PotCookingRecipeSerializer<T extends PotCookingRecipe>(
         Ingredient results = Ingredient.fromJson(resultJsonElement);
         float experience = JsonHelper.getFloat(jsonObject, "experience", 0.0F);
         int cookingTime = JsonHelper.getInt(jsonObject, "cookingtime", 100);
-        return this.recipeFactory.create(identifier, group, ingredient, containerItemStack, results, experience, cookingTime);
+        return this.recipeFactory.create(identifier, ingredient, containerItemStack, results, experience, cookingTime);
     }
 
     public T read(Identifier identifier, PacketByteBuf packetByteBuf) {
-        String group = packetByteBuf.readString();
         Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
         ItemStack itemStack = packetByteBuf.readItemStack();
         Ingredient results = Ingredient.fromPacket(packetByteBuf);
         float f = packetByteBuf.readFloat();
         int i = packetByteBuf.readVarInt();
-        return this.recipeFactory.create(identifier, group, ingredient, itemStack, results, f, i);
+        return this.recipeFactory.create(identifier, ingredient, itemStack, results, f, i);
     }
 
     public void write(PacketByteBuf packetByteBuf, T potCookingRecipe) {
-        packetByteBuf.writeString(potCookingRecipe.group);
         potCookingRecipe.ingredient.write(packetByteBuf);
         packetByteBuf.writeItemStack(potCookingRecipe.container);
         potCookingRecipe.result.write(packetByteBuf);
@@ -50,7 +47,7 @@ public record PotCookingRecipeSerializer<T extends PotCookingRecipe>(
     }
 
     public interface RecipeFactory<T extends PotCookingRecipe> {
-        T create(Identifier id, String group, Ingredient ingredient, ItemStack container, Ingredient result, float experience, int cookingTime);
+        T create(Identifier id, Ingredient ingredient, ItemStack container, Ingredient result, float experience, int cookingTime);
     }
 }
 

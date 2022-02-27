@@ -16,19 +16,17 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class PotCookingRecipe implements Recipe<Inventory> {
-    public final RecipeType<?> type;
-    public final Identifier id;
-    public final String group;
-    public final Ingredient ingredient;
-    public final ItemStack container;
-    public final Ingredient result;
-    public final float experience;
-    public final int cookTime;
+    public RecipeType<?> type;
+    public Identifier id;
+    public Ingredient ingredient;
+    public ItemStack container;
+    public Ingredient result;
+    public float experience;
+    public int cookTime;
 
-    public PotCookingRecipe(Identifier id, String group, Ingredient ingredient, ItemStack container, Ingredient result, float experience, int cookTime) {
+    public PotCookingRecipe(Identifier id, Ingredient ingredient, ItemStack container, Ingredient result, float experience, int cookTime) {
         this.type = CateRecipes.Pot_Cooking_RecipeType;
         this.id = id;
-        this.group = group;
         this.ingredient = ingredient;
         this.container = container;
         this.result = result;

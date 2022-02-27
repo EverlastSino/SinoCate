@@ -1,6 +1,8 @@
 {
     "replace": false,
     "values": [
-      "cate:osmanthus_tree_leaves"
+      "cate:osmanthus_tree_log",
+      "cate:wooden_sieve",
+      "cate:cutting_board"
     ]
   }

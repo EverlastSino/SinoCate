@@ -9,6 +9,11 @@
   "block.cate.osmanthus_tree_log":"Osmanthus Tree Log",
   "block.cate.adzuki_bean":"Adzuki Bean",
   "block.cate.ginger":"Ginger",
+  "block.cate.salt_block":"Block of Salt",
+  "block.cate.evaporation_pan":"Evaporation Pan",
+  "block.cate.rock_salt_ore":"Rock Salt Ore",
+  "block.cate.cutting_board":"Cutting Board",
+  "block.cate.stone_mill":"Stone Mill",
   "item.cate.paddy_straw":"Paddy Straw",
   "item.cate.osmanthus":"Osmanthus",
   "item.cate.oyster":"Oyster",
@@ -16,5 +21,13 @@
   "item.cate.oyster_sauce":"Oyster Sauce",
   "item.cate.rice":"Rice",
   "item.cate.osmanthus_adzuki_bean_porridge":"Osmanthus Adzuki Bean Porridge",
-  "item.cate.oyster_spawn_egg":"Oyster Spawn Egg"
+  "item.cate.oyster_spawn_egg":"Oyster Spawn Egg",
+  "item.cate.kitchen_knife":"Kitchen Knife",
+  "item.cate.dough":"Dough",
+  "item.cate.flour":"Flour",
+  "item.cate.tang_yuan":"Tangyuan",
+  "item.cate.salt":"Salt",
+  "item.cate.salt_bucket":"Bucket of Salt",
+  "item.cate.tooltip.tang_yuan":"Chinese Traditional Glue Puddings",
+  "entity.cate.oyster":"Oyster"
 }

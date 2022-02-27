@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "cate:item/kitchen_knife",
+		"particle": "cate:item/kitchen_knife"
+	},
+	"elements": [
+		{
+			"name": "blade",
+			"from": [7.995, 0, 3.5],
+			"to": [8.005, 4, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -0.5, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 4], "texture": "#0"},
+				"east": {"uv": [0, 0, 7, 4], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 4], "texture": "#0"},
+				"west": {"uv": [0, 4, 7, 8], "texture": "#0"},
+				"up": {"uv": [0, 7, 0, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 7], "texture": "#0"}
+			}
+		},
+		{
+			"name": "con",
+			"from": [7.7, 3.3, 10.45],
+			"to": [8.3, 3.9, 11.1],
+			"faces": {
+				"north": {"uv": [0, 8, 1, 9], "texture": "#0"},
+				"east": {"uv": [1, 8, 2, 9], "texture": "#0"},
+				"south": {"uv": [2, 8, 3, 9], "texture": "#0"},
+				"west": {"uv": [8, 2, 9, 3], "texture": "#0"},
+				"up": {"uv": [4, 9, 3, 8], "texture": "#0"},
+				"down": {"uv": [9, 3, 8, 4], "texture": "#0"}
+			}
+		},
+		{
+			"name": "handle",
+			"from": [7.5, 3.1, 11.1],
+			"to": [8.5, 4.1, 14.5],
+			"faces": {
+				"north": {"uv": [4, 8, 5, 9], "texture": "#0"},
+				"east": {"uv": [7, 0, 10, 1], "texture": "#0"},
+				"south": {"uv": [8, 4, 9, 5], "texture": "#0"},
+				"west": {"uv": [7, 1, 10, 2], "texture": "#0"},
+				"up": {"uv": [8, 5, 7, 2], "texture": "#0"},
+				"down": {"uv": [8, 5, 7, 8], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 4.5, 6]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 4.5, 6]
+		},
+		"firstperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 8, 7.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 8, 7.5]
+		},
+		"ground": {
+			"rotation": [0, 0, 90],
+			"translation": [0, -1.75, 0]
+		},
+		"gui": {
+			"rotation": [25, -135, 0],
+			"translation": [0, 5, 0]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0],
+			"translation": [-0.75, 6.25, -0.25]
+		}
+	},
+	"groups": [
+		{
+			"name": "main",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

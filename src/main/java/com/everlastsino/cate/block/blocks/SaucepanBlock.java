@@ -26,7 +26,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class SaucepanBlock extends BlockWithEntity{
+public class SaucepanBlock extends BlockWithEntity {
 
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final VoxelShape SHAPE = VoxelShapes.union(
@@ -46,7 +46,7 @@ public class SaucepanBlock extends BlockWithEntity{
             Block.createCuboidShape(7.0D, 12.0D, 6.0D, 9.0D, 13.0D, 10.0D)
     );
 
-    public SaucepanBlock(AbstractBlock.Settings settings) {
+    public SaucepanBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
     }
@@ -114,7 +114,7 @@ public class SaucepanBlock extends BlockWithEntity{
         Direction direction = state.get(FACING);
         if (direction == Direction.WEST || direction == Direction.EAST) {
             return SHAPE_TURNED;
-        }else{
+        } else {
             return SHAPE;
         }
     }

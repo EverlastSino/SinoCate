@@ -21,14 +21,14 @@ public class CateMain implements ModInitializer {
 	public void onInitialize() {
 		CateLogger.info("Ready to register objects. Best wishes from EverlastSino Team ^_^!");
 
+		CateItems.registerItems();
+		CateFuelItemRegister.register();
+
 		CateCrops.registerCropBlocks();
 		CateScreenHandlers.registerScreenHandlers();
 		CateBlocks.registerBlocks();
 		CateBlockEntities.createBlockEntities();
 		CateFlammableBlockRegister.register();
-
-		CateItems.registerItems();
-		CateFuelItemRegister.register();
 
 		CateRecipes.registerRecipes();
 

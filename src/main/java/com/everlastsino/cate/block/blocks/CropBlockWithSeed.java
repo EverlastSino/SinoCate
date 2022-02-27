@@ -1,17 +1,20 @@
 package com.everlastsino.cate.block.blocks;
 
-import com.everlastsino.cate.item.CateItems;
 import net.minecraft.block.CropBlock;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 
-public class GingerBlock extends CropBlock {
+public class CropBlockWithSeed extends CropBlock {
+    private final Item seed;
 
-    public GingerBlock(Settings settings) {
+    public CropBlockWithSeed(Item seed, Settings settings) {
         super(settings);
+        this.seed = seed;
     }
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return CateItems.Ginger;
+        return this.seed;
     }
+
 }

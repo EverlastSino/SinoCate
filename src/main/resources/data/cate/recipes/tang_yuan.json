@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:dough",
+  "resultAmount": 1,
+  "result": "cate:tang_yuan",
+  "tool": "cate:kitchen_knife",
+  "damageTool": 1,
+  "steps": 3
+}
