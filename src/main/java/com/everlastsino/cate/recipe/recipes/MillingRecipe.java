@@ -39,7 +39,7 @@ public class MillingRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return CateRecipes.Pot_Cooking_RecipeSerializer;
+        return CateRecipes.Milling_RecipeSerializer;
     }
 
     @Override

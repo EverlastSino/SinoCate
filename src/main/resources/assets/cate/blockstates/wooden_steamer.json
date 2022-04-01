@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cate:block/wooden_steamer"
+    },
+    "type=double": {
+      "model": "cate:block/wooden_steamer_double"
+    },
+    "type=top": {
+      "model": "cate:block/wooden_steamer"
+    }
+  }
+}

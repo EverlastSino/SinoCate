@@ -1,12 +1,10 @@
 package com.everlastsino.cate.blockEntity.blockEntities;
 
 import com.everlastsino.cate.api.CateBlockEntityInventory;
-import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.blocks.StoneMillBlock;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
 import com.everlastsino.cate.recipe.CateRecipes;
 import com.everlastsino.cate.recipe.recipes.MillingRecipe;
-import com.everlastsino.cate.screen.screens.SaucepanScreenHandler;
 import com.everlastsino.cate.screen.screens.StoneMillScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -151,7 +149,7 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
     }
 
     private void matchRecipe() {
-        if (this.world == null) return;
+        if (this.world == null || this.world.isClient) return;
         List<MillingRecipe> recipes = this.world.getRecipeManager().listAllOfType(CateRecipes.Milling_RecipeType);
         for (MillingRecipe recipe : recipes) {
             if (recipe.check(this.getIngredient(), this.getContainer())) {

@@ -4,6 +4,7 @@ import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
 import com.everlastsino.cate.blockEntity.blockEntities.renderers.CuttingBoardBlockEntityRenderer;
+import com.everlastsino.cate.blockEntity.blockEntities.renderers.WoodenSteamerBlockEntityRenderer;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.entity.renderer.renderers.OysterEntityRenderer;
 import com.everlastsino.cate.screen.CateScreens;
@@ -43,6 +44,7 @@ public class CateClientMain implements ClientModInitializer {
 
         //方块实体
         BlockEntityRendererRegistry.register(CateBlockEntities.Cutting_Board_BlockEntity, CuttingBoardBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(CateBlockEntities.Wooden_Steamer_BlockEntity, WoodenSteamerBlockEntityRenderer::new);
 
         LOGGER.info("Successfully initialized!");
     }

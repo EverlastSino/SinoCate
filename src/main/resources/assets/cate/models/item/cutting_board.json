@@ -1,3 +1,6 @@
 {
-    "parent": "cate:block/cutting_board"
-}
+    "parent": "minecraft:item/handheld",
+    "textures" : {
+      "layer0" : "cate:item/cutting_board"
+    }
+  }

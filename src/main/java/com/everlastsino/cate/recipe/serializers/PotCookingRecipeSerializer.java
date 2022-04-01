@@ -12,7 +12,7 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.registry.Registry;
 
 public record PotCookingRecipeSerializer<T extends PotCookingRecipe>(
-        com.everlastsino.cate.recipe.serializers.PotCookingRecipeSerializer.RecipeFactory<T> recipeFactory) implements RecipeSerializer<T> {
+        PotCookingRecipeSerializer.RecipeFactory<T> recipeFactory) implements RecipeSerializer<T> {
 
     public T read(Identifier identifier, JsonObject jsonObject) {
         JsonElement ingredientJsonElement = JsonHelper.hasArray(jsonObject, "ingredient") ?

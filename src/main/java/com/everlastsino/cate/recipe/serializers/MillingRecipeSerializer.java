@@ -12,7 +12,7 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.registry.Registry;
 
 public record MillingRecipeSerializer<T extends MillingRecipe>(
-        com.everlastsino.cate.recipe.serializers.MillingRecipeSerializer.RecipeFactory<T> recipeFactory) implements RecipeSerializer<T> {
+        MillingRecipeSerializer.RecipeFactory<T> recipeFactory) implements RecipeSerializer<T> {
 
     public T read(Identifier identifier, JsonObject jsonObject) {
         JsonElement ingredientJsonElement = JsonHelper.hasArray(jsonObject, "ingredient") ?
@@ -32,7 +32,6 @@ public record MillingRecipeSerializer<T extends MillingRecipe>(
         Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
         ItemStack itemStack = packetByteBuf.readItemStack();
         Ingredient results = Ingredient.fromPacket(packetByteBuf);
-        float f = packetByteBuf.readFloat();
         int i = packetByteBuf.readVarInt();
         return this.recipeFactory.create(identifier, ingredient, itemStack, results, i);
     }

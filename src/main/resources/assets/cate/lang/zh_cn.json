@@ -1,5 +1,6 @@
 {
   "itemGroup.cate.cate":"肴馔",
+
   "block.cate.paddy":"秧",
   "block.cate.paddy_seedling":"稻谷",
   "block.cate.saucepan":"煮锅",
@@ -11,9 +12,11 @@
   "block.cate.ginger":"生姜",
   "block.cate.salt_block":"食盐块",
   "block.cate.evaporation_pan":"蒸发皿",
-  "block.cate.rock_salt_ore":"岩盐桶",
+  "block.cate.rock_salt_ore":"岩盐矿",
   "block.cate.cutting_board":"砧板",
   "block.cate.stone_mill":"石磨",
+  "block.cate.soybean":"大豆",
+
   "item.cate.paddy_straw":"稻",
   "item.cate.osmanthus":"桂花",
   "item.cate.oyster":"牡蛎",
@@ -28,6 +31,11 @@
   "item.cate.tang_yuan":"汤圆",
   "item.cate.salt":"食盐",
   "item.cate.salt_bucket":"食盐桶",
+  "item.cate.rolling_pin":"擀面杖",
+
   "item.cate.tooltip.tang_yuan":"中华传统美食——汤圆",
+  "item.cate.rolling_pin.dough":"更改为 面团 模式",
+  "item.cate.rolling_pin.tang_yuan":"更改为 汤圆 模式",
+
   "entity.cate.oyster":"牡蛎"
 }

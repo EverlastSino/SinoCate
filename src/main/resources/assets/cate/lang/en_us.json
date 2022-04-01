@@ -1,5 +1,6 @@
 {
   "itemGroup.cate.cate":"Cate",
+
   "block.cate.paddy":"Grown Paddy Seedling",
   "block.cate.paddy_seedling":"Rough Rice",
   "block.cate.saucepan":"Saucepan",
@@ -14,6 +15,8 @@
   "block.cate.rock_salt_ore":"Rock Salt Ore",
   "block.cate.cutting_board":"Cutting Board",
   "block.cate.stone_mill":"Stone Mill",
+  "block.cate.soybean":"Soybean",
+
   "item.cate.paddy_straw":"Paddy Straw",
   "item.cate.osmanthus":"Osmanthus",
   "item.cate.oyster":"Oyster",
@@ -28,6 +31,11 @@
   "item.cate.tang_yuan":"Tangyuan",
   "item.cate.salt":"Salt",
   "item.cate.salt_bucket":"Bucket of Salt",
+  "item.cate.rolling_pin":"Rolling Pin",
+
   "item.cate.tooltip.tang_yuan":"Chinese Traditional Glue Puddings",
+  "item.cate.rolling_pin.dough":"Changed to Dough mode",
+  "item.cate.rolling_pin.tang_yuan":"Changed to Tangyuan mode",
+
   "entity.cate.oyster":"Oyster"
 }

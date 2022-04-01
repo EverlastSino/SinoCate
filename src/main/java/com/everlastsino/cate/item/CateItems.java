@@ -4,6 +4,8 @@ import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.item.items.ItemWithToolTip;
+import com.everlastsino.cate.item.items.RollingPinItem;
+import com.everlastsino.cate.item.items.SimpleDrinkItem;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
@@ -14,6 +16,8 @@ import net.minecraft.util.registry.Registry;
 public class CateItems {
     //普通物品
     //工具
+    public static final Item Rolling_Pin = new RollingPinItem(
+            new FabricItemSettings().group(CateItemGroups.CateGroup).maxCount(1).maxDamage(128));
     public static final Item Kitchen_Knife = new SwordItem(ToolMaterials.IRON, 2, -3.0f,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
 
@@ -37,12 +41,18 @@ public class CateItems {
     public static final Item Salt_Bucket = new Item(new FabricItemSettings()
             .recipeRemainder(Items.BUCKET).group(CateItemGroups.CateGroup));
 
+    //生食区
+    public static final Item Raw_Soymilk = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
     //熟食区
     public static final Item Osmanthus_Adzuki_Bean_Porridge = new StewItem(
             new FabricItemSettings().group(CateItemGroups.CateGroup).food(
                     new FoodComponent.Builder().hunger(4).saturationModifier(2.0F).build()));
     public static final Item Cooked_Oyster = new Item(
             new FabricItemSettings().group(CateItemGroups.CateGroup).food(FoodComponents.COOKED_SALMON));
+    public static final Item Soymilk = new SimpleDrinkItem(Items.GLASS_BOTTLE,
+            new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).food(FoodComponents.HONEY_BOTTLE)
+                    .group(CateItemGroups.CateGroup).maxCount(16));
 
     //刷怪蛋
     public static final Item Oyster_Spawn_Egg = new SpawnEggItem(CateEntities.Oyster_Entity,
@@ -64,14 +74,15 @@ public class CateItems {
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Stone_Mill = new BlockItem(CateBlocks.Stone_Mill,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
-
+    public static final BlockItem Wooden_Steamer = new BlockItem(CateBlocks.Wooden_Steamer,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //草木
     public static final BlockItem Osmanthus_Tree_Sapling = new BlockItem(CateBlocks.Osmanthus_Tree_Sapling,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Osmanthus_Tree_Leaves = new BlockItem(CateBlocks.Osmanthus_Tree_Leaves,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
-    public static final BlockItem Osmanthus_Tree_Log = new BlockItem(CateBlocks.Osmanthus_tree_Log,
+    public static final BlockItem Osmanthus_Tree_Log = new BlockItem(CateBlocks.Osmanthus_Tree_Log,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //矿石
@@ -97,6 +108,7 @@ public class CateItems {
     public static void registerItems(){
         //普通物品
         //工具
+        registerItem("rolling_pin", Rolling_Pin);
         registerItem("kitchen_knife", Kitchen_Knife);
 
         //农副产品
@@ -117,9 +129,13 @@ public class CateItems {
         registerItem("salt", Salt);
         registerItem("salt_bucket", Salt_Bucket);
 
+        //生食区
+        registerItem("raw_soymilk", Raw_Soymilk);
+
         //熟食区
         registerItem("osmanthus_adzuki_bean_porridge", Osmanthus_Adzuki_Bean_Porridge);
         registerItem("cooked_oyster", Cooked_Oyster);
+        registerItem("soymilk", Soymilk);
 
         //刷怪蛋
         registerItem("oyster_spawn_egg", Oyster_Spawn_Egg);
@@ -134,6 +150,7 @@ public class CateItems {
         registerItem("evaporation_pan", Evaporation_Pan);
         registerItem("cutting_board", Cutting_Board);
         registerItem("stone_mill", Stone_Mill);
+        registerItem("wooden_steamer", Wooden_Steamer);
 
         //草木
         registerItem("osmanthus_tree_sapling", Osmanthus_Tree_Sapling);

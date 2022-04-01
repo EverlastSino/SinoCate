@@ -3,9 +3,11 @@ package com.everlastsino.cate.recipe;
 import com.everlastsino.cate.recipe.recipes.CuttingRecipe;
 import com.everlastsino.cate.recipe.recipes.MillingRecipe;
 import com.everlastsino.cate.recipe.recipes.PotCookingRecipe;
+import com.everlastsino.cate.recipe.recipes.SteamingRecipe;
 import com.everlastsino.cate.recipe.serializers.CuttingRecipeSerializer;
 import com.everlastsino.cate.recipe.serializers.MillingRecipeSerializer;
 import com.everlastsino.cate.recipe.serializers.PotCookingRecipeSerializer;
+import com.everlastsino.cate.recipe.serializers.SteamingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
@@ -21,7 +23,11 @@ public class CateRecipes {
     public static RecipeType<MillingRecipe> Milling_RecipeType;
     public static RecipeSerializer<MillingRecipe> Milling_RecipeSerializer;
 
+    public static RecipeType<SteamingRecipe> Steaming_RecipeType;
+    public static RecipeSerializer<SteamingRecipe> Steaming_RecipeSerializer;
+
     public static void registerRecipes(){
+
         Pot_Cooking_RecipeType = Registry.register(Registry.RECIPE_TYPE, new Identifier("cate", "pot_cooking"),
                 new RecipeType<PotCookingRecipe>() {
                     @Override
@@ -51,6 +57,16 @@ public class CateRecipes {
                 });
         Milling_RecipeSerializer = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("cate", "milling"),
                 new MillingRecipeSerializer<>(MillingRecipe::new));
+
+        Steaming_RecipeType = Registry.register(Registry.RECIPE_TYPE, new Identifier("cate", "steaming"),
+                new RecipeType<SteamingRecipe>() {
+                    @Override
+                    public String toString() {
+                        return "steaming";
+                    }
+                });
+        Steaming_RecipeSerializer = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("cate", "steaming"),
+                new SteamingRecipeSerializer<>(SteamingRecipe::new));
 
     }
 
