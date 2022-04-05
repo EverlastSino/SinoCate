@@ -1,0 +1,6 @@
+{
+  "type": "cate:steaming",
+  "ingredient": "cate:baozi",
+  "result": "cate:cooked_baozi",
+  "cooktime": 800
+}

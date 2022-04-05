@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.everlastsino.cate.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "server": [
+    "CateEntityGens",
+    "CateOreGens",
+    "CateTreeGens"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

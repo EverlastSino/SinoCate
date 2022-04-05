@@ -1,0 +1,13 @@
+{
+    "type": "cate:pot_cooking",
+    "ingredient": [
+      {"item": "cate:oyster"},
+      {"item": "cate:salt"}
+    ],
+    "container": "minecraft:glass_bottle",
+    "result": [
+      {"item": "cate:oyster_sauce"}
+    ],
+    "experience": 0.35,
+    "cookingtime": 200
+  }

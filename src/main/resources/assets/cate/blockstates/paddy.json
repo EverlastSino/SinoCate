@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "cate:block/paddy0"
+    },
+    "age=1": {
+      "model": "cate:block/paddy1"
+    },
+    "age=2": {
+      "model": "cate:block/paddy2"
+    },
+    "age=3": {
+      "model": "cate:block/paddy3"
+    }
+  }
+}

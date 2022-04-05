@@ -1,0 +1,12 @@
+{
+    "type": "cate:milling",
+    "ingredient": [
+      {"item": "cate:soybean"},
+      {"item": "cate:soybean"}
+    ],
+    "container": "minecraft:glass_bottle",
+    "result": [
+      {"item": "cate:raw_soymilk"}
+    ],
+    "rounds": 3
+ }

@@ -1,0 +1,124 @@
+{
+    "variants": {
+      "facing=east,step=1": {
+        "model": "cate:block/stone_mill1",
+        "y": 90
+      },
+      "facing=east,step=2": {
+        "model": "cate:block/stone_mill2",
+        "y": 90
+      },
+      "facing=east,step=3": {
+        "model": "cate:block/stone_mill3",
+        "y": 90
+      },
+      "facing=east,step=4": {
+        "model": "cate:block/stone_mill4",
+        "y": 90
+      },
+      "facing=east,step=5": {
+        "model": "cate:block/stone_mill5",
+        "y": 90
+      },
+      "facing=east,step=6": {
+        "model": "cate:block/stone_mill6",
+        "y": 90
+      },
+      "facing=east,step=7": {
+        "model": "cate:block/stone_mill7",
+        "y": 90
+      },
+      "facing=east,step=8": {
+        "model": "cate:block/stone_mill8",
+        "y": 90
+      },
+      "facing=north,step=1": {
+        "model": "cate:block/stone_mill1"
+      },
+      "facing=north,step=2": {
+        "model": "cate:block/stone_mill2"
+      },
+      "facing=north,step=3": {
+        "model": "cate:block/stone_mill3"
+      },
+      "facing=north,step=4": {
+        "model": "cate:block/stone_mill4"
+      },
+      "facing=north,step=5": {
+        "model": "cate:block/stone_mill5"
+      },
+      "facing=north,step=6": {
+        "model": "cate:block/stone_mill6"
+      },
+      "facing=north,step=7": {
+        "model": "cate:block/stone_mill7"
+      },
+      "facing=north,step=8": {
+        "model": "cate:block/stone_mill8"
+      },
+      "facing=south,step=1": {
+        "model": "cate:block/stone_mill1",
+        "y": 180
+      },
+      "facing=south,step=2": {
+        "model": "cate:block/stone_mill2",
+        "y": 180
+      },
+      "facing=south,step=3": {
+        "model": "cate:block/stone_mill3",
+        "y": 180
+      },
+      "facing=south,step=4": {
+        "model": "cate:block/stone_mill4",
+        "y": 180
+      },
+      "facing=south,step=5": {
+        "model": "cate:block/stone_mill5",
+        "y": 180
+      },
+      "facing=south,step=6": {
+        "model": "cate:block/stone_mill6",
+        "y": 180
+      },
+      "facing=south,step=7": {
+        "model": "cate:block/stone_mill7",
+        "y": 180
+      },
+      "facing=south,step=8": {
+        "model": "cate:block/stone_mill8",
+        "y": 180
+      },
+      "facing=west,step=1": {
+        "model": "cate:block/stone_mill1",
+        "y": 270
+      },
+      "facing=west,step=2": {
+        "model": "cate:block/stone_mill2",
+        "y": 270
+      },
+      "facing=west,step=3": {
+        "model": "cate:block/stone_mill3",
+        "y": 270
+      },
+      "facing=west,step=4": {
+        "model": "cate:block/stone_mill4",
+        "y": 270
+      },
+      "facing=west,step=5": {
+        "model": "cate:block/stone_mill5",
+        "y": 270
+      },
+      "facing=west,step=6": {
+        "model": "cate:block/stone_mill6",
+        "y": 270
+      },
+      "facing=west,step=7": {
+        "model": "cate:block/stone_mill7",
+        "y": 270
+      },
+      "facing=west,step=8": {
+        "model": "cate:block/stone_mill8",
+        "y": 270
+      }
+    }
+  }

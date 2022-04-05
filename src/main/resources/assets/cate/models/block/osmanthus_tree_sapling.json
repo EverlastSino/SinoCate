@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "cate:block/osmanthus_tree_sapling"
+  }
+}

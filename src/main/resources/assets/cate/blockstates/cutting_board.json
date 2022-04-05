@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cate:block/cutting_board"
+    },
+    "facing=south": {
+      "model": "cate:block/cutting_board",
+      "y":180
+    },
+    "facing=east": {
+      "model": "cate:block/cutting_board",
+      "y":90
+    },
+    "facing=west": {
+      "model": "cate:block/cutting_board",
+      "y":270
+    }
+  }
+}

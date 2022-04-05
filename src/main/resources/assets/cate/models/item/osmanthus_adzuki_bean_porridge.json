@@ -1,0 +1,6 @@
+{
+  "parent" : "item/generated" ,
+  "textures" : {
+    "layer0" : "cate:item/osmanthus_adzuki_bean_porridge"
+  }
+}

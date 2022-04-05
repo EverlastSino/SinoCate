@@ -1,0 +1,11 @@
+{
+    "type": "cate:milling",
+    "ingredient": [
+      {"item": "minecraft:wheat"}
+    ],
+    "container": "minecraft:air",
+    "result": [
+      {"item": "cate:flour"}
+    ],
+    "rounds": 3
+  }
