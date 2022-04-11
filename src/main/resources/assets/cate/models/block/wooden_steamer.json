@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"parent":"block/block",
 	"textures": {
-		"0": "block/birch_planks",
+		"0": "cate:block/wooden_steamer",
 		"1": "block/oak_planks",
-		"particle": "block/birch_planks"
+		"particle": "cate:block/wooden_steamer"
 	},
 	"elements": [
 		{

@@ -5,6 +5,7 @@
     ],
     "container": "minecraft:air",
     "result": [
+      {"item": "cate:flour"},
       {"item": "cate:flour"}
     ],
     "rounds": 3

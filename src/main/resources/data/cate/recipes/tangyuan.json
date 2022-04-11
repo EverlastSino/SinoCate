@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:dough_jizi",
+  "resultAmount": 1,
+  "result": "cate:tangyuan",
+  "tool": "cate:kitchen_knife",
+  "damageTool": 1,
+  "steps": 5
+}

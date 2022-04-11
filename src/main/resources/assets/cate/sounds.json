@@ -1,0 +1,9 @@
+{
+  "stone_mill_working": {
+    "subtitle": "sound.cate.stone_mill_working",
+    "sounds": [
+      "cate:stone_mill_working",
+      "cate:stone_mill_working1"
+    ]
+  }
+}

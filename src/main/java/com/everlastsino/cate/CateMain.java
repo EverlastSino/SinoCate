@@ -1,10 +1,11 @@
 package com.everlastsino.cate;
 
+import com.everlastsino.cate.api.CateCompostableItemRegister;
 import com.everlastsino.cate.api.CateFlammableBlockRegister;
 import com.everlastsino.cate.api.CateFuelItemRegister;
-import com.everlastsino.cate.api.enums.EnumsRegister;
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
+import com.everlastsino.cate.item.CateItemTags;
 import com.everlastsino.cate.item.CateItems;
 import com.everlastsino.cate.recipe.CateRecipes;
 import com.everlastsino.cate.screen.CateScreenHandlers;
@@ -27,12 +28,15 @@ public class CateMain implements ModInitializer {
 		CateBlocks.registerBlocks();
 		CateBlockEntities.createBlockEntities();
 		CateFlammableBlockRegister.register();
+		CateCompostableItemRegister.register();
+
+		CateItemTags.register();
 
 		CateRecipes.registerRecipes();
 
 		CateFeatures.registerFeatures();
 
-		EnumsRegister.registerEnums();
+		CateSoundEvents.register();
 
 		CateLogger.info("Successfully loaded SinoCate Mod for fabric.");
 

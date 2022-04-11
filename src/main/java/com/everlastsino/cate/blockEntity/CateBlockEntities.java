@@ -13,6 +13,7 @@ public class CateBlockEntities {
     public static BlockEntityType<StoneMillBlockEntity> Stone_Mill_BlockEntity;
     public static BlockEntityType<WoodenSteamerBlockEntity> Wooden_Steamer_BlockEntity;
     public static BlockEntityType<SmokingRackBlockEntity> Smoking_Rack_BlockEntity;
+    public static BlockEntityType<SunDryingTrayBlockEntity> Sun_Drying_Tray_BlockEntity;
 
     public static void createBlockEntities(){
         Saucepan_BlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("cate","saucepan_block_entity"),
@@ -25,5 +26,7 @@ public class CateBlockEntities {
                 FabricBlockEntityTypeBuilder.create(WoodenSteamerBlockEntity::new, CateBlocks.Wooden_Steamer).build());
         Smoking_Rack_BlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("cate","smoking_rack_block_entity"),
                 FabricBlockEntityTypeBuilder.create(SmokingRackBlockEntity::new, CateBlocks.Smoking_Rack).build());
+        Sun_Drying_Tray_BlockEntity = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("cate","sun_drying_tray_block_entity"),
+                FabricBlockEntityTypeBuilder.create(SunDryingTrayBlockEntity::new, CateBlocks.Sun_Drying_Tray).build());
     }
 }

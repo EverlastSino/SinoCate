@@ -2,10 +2,8 @@ package com.everlastsino.cate.item;
 
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
-import com.everlastsino.cate.blockEntity.blockEntities.CuttingBoardBlockEntity;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.item.items.ItemWithToolTip;
-import com.everlastsino.cate.item.items.RollingPinItem;
 import com.everlastsino.cate.item.items.SimpleDrinkItem;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -17,7 +15,7 @@ import net.minecraft.util.registry.Registry;
 public class CateItems {
     //普通物品
     //工具
-    public static final Item Rolling_Pin = new RollingPinItem(
+    public static final Item Rolling_Pin = new Item(
             new FabricItemSettings().group(CateItemGroups.CateGroup).maxCount(1).maxDamage(128));
     public static final Item Kitchen_Knife = new SwordItem(ToolMaterials.IRON, 2, -3.0f,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
@@ -25,14 +23,27 @@ public class CateItems {
     //农副产品
     public static final Item Paddy_Straw = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Osmanthus = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final Item Orange = new Item(new FabricItemSettings()
+            .group(CateItemGroups.CateGroup).food(FoodComponents.APPLE));
 
     //食材
     public static final Item Rice = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Flour = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
-    public static final Item Dough = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
-    public static final Item Tang_Yuan = new ItemWithToolTip("tang_yuan", true,
-            new FabricItemSettings().group(CateItemGroups.CateGroup), Formatting.AQUA, Formatting.ITALIC);
     public static final Item Minced_Meat = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
+    //面制品
+    public static final Item Dough = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Dough_Bar = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Tangyuan = new ItemWithToolTip("tangyuan", true,
+            new FabricItemSettings().group(CateItemGroups.Flour_Products), Formatting.AQUA, Formatting.ITALIC);
+    public static final Item Dough_Jizi = new ItemWithToolTip("dough_jizi", true,
+            new FabricItemSettings().group(CateItemGroups.Flour_Products), Formatting.AQUA, Formatting.ITALIC);
+    public static final Item Wheat_Noodles = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Dough_Piece = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Dumpling = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Leavened_Dough = new Item(new FabricItemSettings().group(CateItemGroups.Flour_Products));
+    public static final Item Mantou = new ItemWithToolTip("mantou", true,
+            new FabricItemSettings().group(CateItemGroups.Flour_Products), Formatting.AQUA, Formatting.ITALIC);
 
     //猎物
     public static final Item Oyster = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
@@ -92,6 +103,8 @@ public class CateItems {
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Smoking_Rack = new BlockItem(CateBlocks.Smoking_Rack,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Sun_Drying_Tray = new BlockItem(CateBlocks.Sun_Drying_Tray,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //草木
     public static final BlockItem Osmanthus_Tree_Sapling = new BlockItem(CateBlocks.Osmanthus_Tree_Sapling,
@@ -99,6 +112,10 @@ public class CateItems {
     public static final BlockItem Osmanthus_Tree_Leaves = new BlockItem(CateBlocks.Osmanthus_Tree_Leaves,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Osmanthus_Tree_Log = new BlockItem(CateBlocks.Osmanthus_Tree_Log,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Orange_Tree_Sapling = new BlockItem(CateBlocks.Orange_Tree_Sapling,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Orange_Tree_Leaves = new BlockItem(CateBlocks.Orange_Tree_Leaves,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //矿石
@@ -130,13 +147,23 @@ public class CateItems {
         //农副产品
         registerItem("paddy_straw", Paddy_Straw);
         registerItem("osmanthus", Osmanthus);
+        registerItem("orange", Orange);
 
         //食材
         registerItem("rice", Rice);
         registerItem("flour", Flour);
-        registerFlourProduct("dough", Dough);
-        registerFlourProduct("tang_yuan", Tang_Yuan);
         registerItem("minced_meat", Minced_Meat);
+
+        //面制品
+        registerItem("dough", Dough);
+        registerItem("dough_bar", Dough_Bar);
+        registerItem("tangyuan", Tangyuan);
+        registerItem("dough_jizi", Dough_Jizi);
+        registerItem("wheat_noodles", Wheat_Noodles);
+        registerItem("dough_piece", Dough_Piece);
+        registerItem("dumpling", Dumpling);
+        registerItem("leavened_dough", Leavened_Dough);
+        registerItem("mantou", Mantou);
 
         //猎物
         registerItem("oyster", Oyster);
@@ -175,11 +202,14 @@ public class CateItems {
         registerItem("stone_mill", Stone_Mill);
         registerItem("wooden_steamer", Wooden_Steamer);
         registerItem("smoking_rack", Smoking_Rack);
+        registerItem("sun_drying_tray", Sun_Drying_Tray);
 
         //草木
         registerItem("osmanthus_tree_sapling", Osmanthus_Tree_Sapling);
         registerItem("osmanthus_tree_leaves", Osmanthus_Tree_Leaves);
         registerItem("osmanthus_tree_log", Osmanthus_Tree_Log);
+        registerItem("orange_tree_sapling", Orange_Tree_Sapling);
+        registerItem("orange_tree_leaves", Orange_Tree_Leaves);
 
         //矿石
         registerItem("rock_salt_ore", Rock_Salt_Ore);
@@ -193,11 +223,6 @@ public class CateItems {
 
         //非耕地
         registerItem("grown_paddy_seedling", Grown_Paddy_Seedling);
-    }
-
-    private static void registerFlourProduct(String name, Item item) {
-        registerItem(name, item);
-        CuttingBoardBlockEntity.FLOUR_PRODUCT_POOL.add(item);
     }
 
     private static void registerItem(String name, Item item) {

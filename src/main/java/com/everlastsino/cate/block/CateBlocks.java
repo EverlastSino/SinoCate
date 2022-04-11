@@ -35,6 +35,8 @@ public class CateBlocks {
             FabricBlockSettings.of(Material.WOOD).strength(0.3f, 0.3f).sounds(BlockSoundGroup.WOOD));
     public static final Block Smoking_Rack = new SmokingRackBlock(
             FabricBlockSettings.of(Material.WOOD).strength(0.3f, 0.3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block Sun_Drying_Tray = new SunDryingTrayBlock(
+            FabricBlockSettings.of(Material.WOOD).strength(0.2f, 0.2f).sounds(BlockSoundGroup.WOOD));
 
     //草木
     public static final Block Osmanthus_Tree_Sapling = new OsmanthusTreeSaplingBlock(
@@ -42,6 +44,10 @@ public class CateBlocks {
     public static final Block Osmanthus_Tree_Leaves = new OsmanthusTreeLeavesBlock(
             FabricBlockSettings.of(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
     public static final Block Osmanthus_Tree_Log = createLogBlock(MapColor.GOLD, MapColor.ORANGE);
+    public static final Block Orange_Tree_Sapling = new OrangeTreeSaplingBlock(
+            FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.GRASS).noCollision().nonOpaque().breakInstantly());
+    public static final Block Orange_Tree_Leaves = new OrangeTreeLeavesBlock(
+            FabricBlockSettings.of(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
 
     //矿石
     public static final Block Rock_Salt_Ore = new OreBlock(
@@ -59,11 +65,14 @@ public class CateBlocks {
         registerBlock("stone_mill", Stone_Mill);
         registerBlock("wooden_steamer", Wooden_Steamer);
         registerBlock("smoking_rack", Smoking_Rack);
+        registerBlock("sun_drying_tray", Sun_Drying_Tray);
 
         //草木
         registerBlock("osmanthus_tree_sapling", Osmanthus_Tree_Sapling);
         registerBlock("osmanthus_tree_leaves", Osmanthus_Tree_Leaves);
         registerBlock("osmanthus_tree_log", Osmanthus_Tree_Log);
+        registerBlock("orange_tree_sapling", Orange_Tree_Sapling);
+        registerBlock("orange_tree_leaves", Orange_Tree_Leaves);
 
         //矿石
         registerBlock("rock_salt_ore", Rock_Salt_Ore);

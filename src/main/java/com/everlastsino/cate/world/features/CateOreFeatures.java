@@ -33,15 +33,11 @@ public class CateOreFeatures {
     //placed
     public static final RegistryEntry<PlacedFeature> ORE_ROCK_SALT_UPPER = PlacedFeatures.register(
             "ore_rock_salt_upper", ORE_ROCK_SALT,
-            modifiersWithCount(90, HeightRangePlacementModifier.trapezoid(YOffset.fixed(50), YOffset.fixed(180))));
+            modifiersWithCount(20, HeightRangePlacementModifier.trapezoid(YOffset.fixed(50), YOffset.fixed(180))));
     public static final RegistryEntry<PlacedFeature> ORE_ROCK_SALT_MIDDLE = PlacedFeatures.register(
             "ore_rock_salt_middle", ORE_ROCK_SALT,
-            modifiersWithCount(90, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(49))));
+            modifiersWithCount(20, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(49))));
 
-
-    public static void registerOreFeatures() {
-
-    }
-
+    public static void register(){}
 
 }

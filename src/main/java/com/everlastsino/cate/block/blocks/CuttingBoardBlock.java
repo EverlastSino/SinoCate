@@ -1,13 +1,9 @@
 package com.everlastsino.cate.block.blocks;
 
-import com.everlastsino.cate.api.enums.RollingPinTypes;
 import com.everlastsino.cate.blockEntity.blockEntities.CuttingBoardBlockEntity;
-import com.everlastsino.cate.item.CateItems;
-import com.everlastsino.cate.item.items.RollingPinItem;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -36,19 +32,10 @@ public class CuttingBoardBlock extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof CuttingBoardBlockEntity entity && hand == Hand.MAIN_HAND && !world.isClient) {
+        if (blockEntity instanceof CuttingBoardBlockEntity entity && hand == Hand.MAIN_HAND) {
             ItemStack stackInHand = player.getStackInHand(hand);
-            if (stackInHand.isEmpty()) {
-                dropStack(world, pos, entity.popStack());
-                return ActionResult.SUCCESS;
-            } else if (!entity.tool.isEmpty() && stackInHand.isOf(entity.tool.getItem())) {
-                if (entity.itemStack.getCount() > 1) {
-                    ItemStack dropStack = new ItemStack(entity.itemStack.getItem(), entity.itemStack.getCount() - 1);
-                    entity.itemStack.setCount(1);
-                    dropStack(world, pos, dropStack);
-                    return ActionResult.SUCCESS;
-                }
-                if (entity.operate()) {
+            if (entity.hasItem()) {
+                if (entity.operate(stackInHand) && entity.matchedCorrect) {
                     if (entity.damageTool > 0) {
                         if (stackInHand.isDamageable()) {
                             stackInHand.damage(1, player, p -> p.sendToolBreakStatus(hand));
@@ -62,19 +49,16 @@ public class CuttingBoardBlock extends BlockWithEntity {
                         }
                     }
                     return ActionResult.SUCCESS;
+                } else {
+                    if (stackInHand.isEmpty() && player.isSneaking()) {
+                        dropStack(world, pos, entity.popStack());
+                        return ActionResult.SUCCESS;
+                    }
+                    return entity.insertStack(stackInHand, player.isCreative()) ? ActionResult.SUCCESS : ActionResult.PASS;
                 }
-            } else if (stackInHand.isOf(CateItems.Rolling_Pin)) {
-                if (entity.itemStack.getCount() > 1) {
-                    ItemStack dropStack = new ItemStack(entity.itemStack.getItem(), entity.itemStack.getCount() - 1);
-                    entity.itemStack.setCount(1);
-                    dropStack(world, pos, dropStack);
-                    return ActionResult.SUCCESS;
-                }
-                Item itemInHand = stackInHand.getItem();
-                if (itemInHand instanceof RollingPinItem && entity.operateWithDough(RollingPinItem.getRollingPinType(stackInHand))) {
-                    stackInHand.damage(1, player, p -> p.sendToolBreakStatus(hand));
-                    return ActionResult.SUCCESS;
-                }
+            } else if (stackInHand.isEmpty() && player.isSneaking()) {
+                dropStack(world, pos, entity.popStack());
+                return ActionResult.SUCCESS;
             }
             return entity.insertStack(stackInHand, player.isCreative()) ? ActionResult.SUCCESS : ActionResult.PASS;
         }

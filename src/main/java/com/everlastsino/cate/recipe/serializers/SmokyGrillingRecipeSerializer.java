@@ -38,6 +38,7 @@ public record SmokyGrillingRecipeSerializer<T extends SmokyGrillingRecipe>(
         packetByteBuf.writeItemStack(recipe.ingredient);
         packetByteBuf.writeItemStack(recipe.result);
         packetByteBuf.writeVarInt(recipe.cookTime);
+        packetByteBuf.writeItemStack(recipe.moreSmoke);
     }
 
     public interface RecipeFactory<T extends SmokyGrillingRecipe> {

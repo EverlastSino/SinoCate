@@ -1,6 +1,6 @@
 {
   "parent" : "item/generated" ,
   "textures" : {
-    "layer0" : "cate:item/tang_yuan"
+    "layer0" : "cate:item/leavened_dough"
   }
 }

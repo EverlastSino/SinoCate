@@ -1,5 +1,6 @@
 {
   "itemGroup.cate.cate":"Cate",
+  "itemGroup.cate.flour_products":"Cate Flour Products",
 
   "block.cate.paddy":"Grown Paddy Seedling",
   "block.cate.paddy_seedling":"Rough Rice",
@@ -18,6 +19,9 @@
   "block.cate.soybean":"Soybean",
   "block.cate.wooden_steamer":"Wooden Steamer",
   "block.cate.smoking_rack":"Smoking Rack",
+  "block.cate.sun_drying_tray":"Sun-Drying Tray",
+  "block.cate.orange_tree_sapling":"Orange Tree Sapling",
+  "block.cate.orange_tree_leaves":"Orange Tree Leaves",
   
   "item.cate.paddy_straw":"Paddy Straw",
   "item.cate.osmanthus":"Osmanthus",
@@ -30,7 +34,7 @@
   "item.cate.kitchen_knife":"Kitchen Knife",
   "item.cate.dough":"Dough",
   "item.cate.flour":"Flour",
-  "item.cate.tang_yuan":"Tangyuan",
+  "item.cate.tangyuan":"Tangyuan",
   "item.cate.salt":"Salt",
   "item.cate.salt_bucket":"Bucket of Salt",
   "item.cate.rolling_pin":"Rolling Pin",
@@ -43,12 +47,20 @@
   "item.cate.minced_meat":"Minced Meat",
   "item.cate.cured_porkchop":"Cured Porkchop",
   "item.cate.smoked_porkchop":"Smoked Porkchop",
+  "item.cate.orange":"Orange",
+  "item.cate.dough_bar":"Dough Bar",
+  "item.cate.dough_jizi":"Dough Jizi",
+  "item.cate.dough_piece":"Dough Piece",
+  "item.cate.wheat_noodles":"Wheat Noodles",
+  "item.cate.dumpling":"Dumpling",
+  "item.cate.leavened_dough":"Leavened Dough",
+  "item.cate.mantou":"Mantou",
 
-  "item.cate.tooltip.tang_yuan":"Chinese Traditional Glue Puddings",
-  "item.cate.tooltip.baozi":"(Raw) A type of yeast-leavened filled bun in various Chinese cuisines",
-  "item.cate.tooltip.cooked_baozi":"(Cooked) A type of yeast-leavened filled bun in various Chinese cuisines",
-  "item.cate.rolling_pin.tooltip.dough":"Changed to Dough mode",
-  "item.cate.rolling_pin.tooltip.tang_yuan":"Changed to Tangyuan mode",
+  "item.cate.tooltip.tangyuan":"Chinese traditional glue puddings",
+  "item.cate.tooltip.baozi":"A type of yeast-leavened filled bun",
+  "item.cate.tooltip.cooked_baozi":"A type of yeast-leavened filled bun",
+  "item.cate.tooltip.dough_jizi":"A little lump of dough",
+  "item.cate.tooltip.mantou":"Yeast-leavened dough",
 
   "entity.cate.oyster":"Oyster"
 }

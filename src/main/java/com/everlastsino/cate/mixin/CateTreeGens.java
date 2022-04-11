@@ -15,4 +15,8 @@ public class CateTreeGens {
     private static void addPlainsFeatures(GenerationSettings.Builder builder, CallbackInfo ci){
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, CateTreeFeatures.Osmanthus_Tree_Placed);
     }
+    @Inject(at = @At("HEAD"), method = "addForestTrees(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V")
+    private static void addForestFeatures(GenerationSettings.Builder builder, CallbackInfo ci){
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, CateTreeFeatures.Orange_Tree_Placed);
+    }
 }

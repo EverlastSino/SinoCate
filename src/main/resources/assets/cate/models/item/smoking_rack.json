@@ -1,3 +1,6 @@
 {
-    "parent": "cate:block/smoking_rack"
+  "parent" : "item/generated" ,
+  "textures" : {
+    "layer0" : "cate:item/smoking_rack"
+  }
 }

@@ -4,7 +4,7 @@
       {"item": "cate:soybean"},
       {"item": "cate:soybean"}
     ],
-    "container": "minecraft:glass_bottle",
+    "container": "minecraft:potion",
     "result": [
       {"item": "cate:raw_soymilk"}
     ],

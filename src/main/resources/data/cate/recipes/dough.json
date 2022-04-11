@@ -1,9 +1,19 @@
 {
-  "type": "cate:cutting",
-  "ingredient": "cate:flour",
-  "resultAmount": 1,
-  "result": "cate:dough",
-  "tool": "minecraft:potion",
-  "damageTool": 1,
-  "steps": 1
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "cate:flour"
+    },
+    "$": {
+      "tag": "minecraft:potion"
+    }
+  },
+  "result": {
+    "item": "cate:dough"
+  }
 }

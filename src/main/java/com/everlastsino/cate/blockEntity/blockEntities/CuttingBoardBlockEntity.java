@@ -1,8 +1,6 @@
 package com.everlastsino.cate.blockEntity.blockEntities;
 
-import com.everlastsino.cate.api.enums.RollingPinTypes;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
-import com.everlastsino.cate.item.CateItems;
 import com.everlastsino.cate.recipe.CateRecipes;
 import com.everlastsino.cate.recipe.recipes.CuttingRecipe;
 import net.minecraft.block.Block;
@@ -10,55 +8,62 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class CuttingBoardBlockEntity extends BlockEntity {
-    public static List<Item> FLOUR_PRODUCT_POOL = new ArrayList<>();
-
     public ItemStack itemStack;
     public int requireSteps;
     public ItemStack result;
     public ItemStack tool;
     public int damageTool;
     public int step;
-    public boolean matchedRecipe;
-    public RollingPinTypes lastType;
+    public boolean matchedRecipe, matchedCorrect;
+    public List<CuttingRecipe> recipes = new ArrayList<>();
+    public ItemStack lastTool;
 
     public CuttingBoardBlockEntity(BlockPos pos, BlockState state) {
         super(CateBlockEntities.Cutting_Board_BlockEntity, pos, state);
         this.itemStack = ItemStack.EMPTY;
+        this.lastTool = ItemStack.EMPTY;
         this.clearRecipe();
-        this.lastType = null;
     }
 
     public void clearRecipe() {
-        this.result = this.tool = ItemStack.EMPTY;
+        this.result = this.tool = this.lastTool = ItemStack.EMPTY;
         this.requireSteps = this.step = 0;
-        this.matchedRecipe = false;
+        this.matchedRecipe = this.matchedCorrect = false;
+        this.recipes.clear();
     }
 
     public boolean matchRecipe() {
         if (this.world == null || this.itemStack.isEmpty()) return false;
-        Optional<CuttingRecipe> recipe = this.world.getRecipeManager().getFirstMatch(
+        this.recipes = this.world.getRecipeManager().getAllMatches(
                 CateRecipes.Cutting_RecipeType, new SimpleInventory(this.itemStack), this.world);
-        if (recipe.isEmpty()) return false;
-        CuttingRecipe newRecipe = recipe.get();
-        this.requireSteps = newRecipe.steps;
-        this.result = newRecipe.result.copy();
-        this.tool = newRecipe.tool.copy();
-        this.damageTool = newRecipe.damageTool;
-        this.step = 0;
-        this.matchedRecipe = true;
-        return true;
+        this.matchedRecipe = !this.recipes.isEmpty();
+        return this.matchedRecipe;
+    }
+
+    public boolean matchCorrectRecipe(ItemStack tool) {
+        for (CuttingRecipe recipe : this.recipes) {
+            if (recipe.tool.isOf(tool.getItem())) {
+                this.requireSteps = recipe.steps;
+                this.result = recipe.result.copy();
+                this.tool = recipe.tool.copy();
+                this.damageTool = recipe.damageTool;
+                this.step = tool.isOf(this.lastTool.getItem()) ? this.step : 0;
+                this.matchedCorrect = true;
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean hasItem() {
@@ -83,43 +88,27 @@ public class CuttingBoardBlockEntity extends BlockEntity {
         return stack;
     }
 
-    public boolean operate() {
-        if (!this.hasItem()) return false;
-        if (!this.matchedRecipe && !this.matchRecipe()) {
-            return false;
+    public boolean operate(ItemStack tool) {
+        if (!this.hasItem() || (!this.matchedRecipe && !this.matchRecipe())) return false;
+        if (this.matchCorrectRecipe(tool)) {
+            this.lastTool = tool.copy();
+            if (++this.step == this.requireSteps) {
+                this.itemStack = this.result.copy();
+                if (this.itemStack.getCount() > 1) {
+                    ItemStack dropper = this.itemStack.copy();
+                    dropper.setCount(this.itemStack.getCount() - 1);
+                    ItemScatterer.spawn(this.world, this.pos, new SimpleInventory(dropper));
+                    this.itemStack.setCount(1);
+                }
+                this.clearRecipe();
+                return true;
+            }
+            this.updateListeners();
+            return true;
         }
-        if (++this.step == this.requireSteps) {
-            this.itemStack = this.result.copy();
-            this.clearRecipe();
-        }
+        this.matchedCorrect = false;
         this.updateListeners();
-        return true;
-    }
-
-    public void matchDoughRecipe(RollingPinTypes type) {
-        this.lastType = type;
-        this.requireSteps = type.steps;
-        this.result = RollingPinTypes.getStackFromType(type);
-        this.tool = new ItemStack(CateItems.Rolling_Pin);
-        this.damageTool = 1;
-        this.step = 0;
-        this.matchedRecipe = true;
-    }
-
-    public boolean operateWithDough(RollingPinTypes type) {
-        Item item = RollingPinTypes.getStackFromType(type).getItem();
-        if (!this.hasItem() || !FLOUR_PRODUCT_POOL.contains(this.itemStack.getItem()) || this.itemStack.isOf(item)) {
-            return false;
-        }
-        if (!this.matchedRecipe || this.lastType == null || this.lastType.equals(type)) {
-            this.matchDoughRecipe(type);
-        }
-        if (++this.step == this.requireSteps) {
-            this.itemStack = this.result;
-            this.clearRecipe();
-        }
-        this.updateListeners();
-        return true;
+        return false;
     }
 
     @Override

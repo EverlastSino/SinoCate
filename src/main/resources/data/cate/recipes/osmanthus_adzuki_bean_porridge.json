@@ -1,7 +1,7 @@
 {
     "type": "cate:pot_cooking",
     "ingredient": [
-      {"item": "cate:tang_yuan"},
+      {"item": "cate:tangyuan"},
       {"item": "cate:osmanthus"},
       {"item": "cate:adzuki_bean"},
       {"item": "minecraft:sugar"}

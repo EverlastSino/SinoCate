@@ -14,7 +14,7 @@
     "sources": "https://github.com/EverlastSino"
   },
 
-  "license": "GPL-V3",
+  "license": "LGPL-V3",
   "icon": "assets/cate/icon.png",
 
   "environment": "*",

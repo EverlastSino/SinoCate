@@ -1,5 +1,6 @@
 package com.everlastsino.cate.blockEntity.blockEntities;
 
+import com.everlastsino.cate.CateSoundEvents;
 import com.everlastsino.cate.api.CateBlockEntityInventory;
 import com.everlastsino.cate.api.enums.StoneMillSlots;
 import com.everlastsino.cate.block.blocks.StoneMillBlock;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -22,8 +24,10 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -96,19 +100,25 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
         this.inventory.get(StoneMillSlots.CONTAINER.ordinal()).setCount(Math.max(0, this.inventory.get(StoneMillSlots.CONTAINER.ordinal()).getCount() - 1));
     }
 
-    public DefaultedList<ItemStack> getResults() {
-        DefaultedList<ItemStack> ingredients = DefaultedList.ofSize(3, ItemStack.EMPTY);
-        ingredients.set(0, this.inventory.get(StoneMillSlots.RESULT_1.ordinal()));
-        ingredients.set(1, this.inventory.get(StoneMillSlots.RESULT_2.ordinal()));
-        ingredients.set(2, this.inventory.get(StoneMillSlots.RESULT_3.ordinal()));
-        return ingredients;
-    }
-
     public void insertResults(Ingredient result) {
         List<ItemStack> itemStacks = List.of(result.getMatchingStacks());
-        for (int i = 0; i < 3 && i < itemStacks.size(); ++i) {
-            int p = i + StoneMillSlots.RESULT_1.ordinal();
-            this.inventory.set(p, itemStacks.get(i).copy());
+        for (ItemStack itemStack : itemStacks) {
+            boolean success = false;
+            for (int i = StoneMillSlots.RESULT_1.ordinal(); i <= StoneMillSlots.RESULT_3.ordinal(); ++i) {
+                ItemStack itemInInv = this.inventory.get(i);
+                if (itemInInv.isEmpty()) {
+                    this.inventory.set(i, itemStack.copy());
+                    success = true;
+                    break;
+                } else if (itemInInv.isOf(itemStack.getItem()) && itemInInv.getCount() < itemStack.getItem().getMaxCount()) {
+                    this.inventory.get(i).increment(1);
+                    success = true;
+                    break;
+                }
+            }
+            if (!success) {
+                ItemScatterer.spawn(this.world, this.pos, new SimpleInventory(itemStack.copy()));
+            }
         }
         this.requireRounds = this.step = 0;
     }
@@ -161,10 +171,10 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
         if (this.step == 0) {
            this.matchRecipe();
         }
-        if (this.world != null && !this.world.isClient && this.getContainer().isOf(this.latestContainer.getItem()) &&
-                this.getResults().get(0).isOf(Items.AIR) && this.getResults().get(1).isOf(Items.AIR) && this.getResults().get(2).isOf(Items.AIR) &&
-                this.compareList(List.of(this.latestIngredient.getMatchingStacks()), this.getIngredient())) {
+        if (this.world != null && !this.world.isClient && this.getContainer().isOf(this.latestContainer.getItem())
+                && this.compareList(List.of(this.latestIngredient.getMatchingStacks()), this.getIngredient())) {
             this.step++;
+            this.playSound();
             if (this.requireRounds * 8 <= this.step) {
                 this.eraseIngredient();
                 this.insertResults(this.latestResult);
@@ -173,6 +183,11 @@ public class StoneMillBlockEntity extends BlockEntity implements ExtendedScreenH
             this.requireRounds = this.step = 0;
         }
         this.setBlockState();
+    }
+
+    public void playSound() {
+        if (this.world == null) return;
+        this.world.playSound(null, this.pos, CateSoundEvents.Stone_Mill_Working, SoundCategory.BLOCKS, 1, 1);
     }
 
     public void setBlockState() {

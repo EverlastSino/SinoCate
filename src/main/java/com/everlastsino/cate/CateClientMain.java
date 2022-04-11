@@ -5,6 +5,7 @@ import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.blockEntity.CateBlockEntities;
 import com.everlastsino.cate.blockEntity.blockEntities.renderers.CuttingBoardBlockEntityRenderer;
 import com.everlastsino.cate.blockEntity.blockEntities.renderers.SmokingRackBlockEntityRenderer;
+import com.everlastsino.cate.blockEntity.blockEntities.renderers.SunDryingTrayBlockEntityRenderer;
 import com.everlastsino.cate.blockEntity.blockEntities.renderers.WoodenSteamerBlockEntityRenderer;
 import com.everlastsino.cate.entity.CateEntities;
 import com.everlastsino.cate.entity.renderer.renderers.OysterEntityRenderer;
@@ -37,6 +38,8 @@ public class CateClientMain implements ClientModInitializer {
 
         transparent(CateBlocks.Osmanthus_Tree_Sapling);
         transparent(CateBlocks.Osmanthus_Tree_Leaves);
+        transparent(CateBlocks.Orange_Tree_Sapling);
+        transparent(CateBlocks.Orange_Tree_Leaves);
         transparent(CateBlocks.Wooden_Sieve);
 
         //实体渲染
@@ -49,6 +52,7 @@ public class CateClientMain implements ClientModInitializer {
         BlockEntityRendererRegistry.register(CateBlockEntities.Cutting_Board_BlockEntity, CuttingBoardBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(CateBlockEntities.Wooden_Steamer_BlockEntity, WoodenSteamerBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(CateBlockEntities.Smoking_Rack_BlockEntity, SmokingRackBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(CateBlockEntities.Sun_Drying_Tray_BlockEntity, SunDryingTrayBlockEntityRenderer::new);
 
         LOGGER.info("Successfully initialized!");
     }

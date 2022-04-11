@@ -14,4 +14,9 @@ public class CateItemGroups {
             () -> new ItemStack(CateItems.Paddy_Straw)
     );
 
+    public static final ItemGroup Flour_Products = FabricItemGroupBuilder.build(
+            new Identifier("cate", "flour_products"),
+            () -> new ItemStack(CateItems.Dough)
+    );
+
 }

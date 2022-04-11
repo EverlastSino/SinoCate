@@ -1,12 +1,9 @@
 package com.everlastsino.cate.recipe.serializers;
 
 import com.everlastsino.cate.recipe.recipes.CuttingRecipe;
-import com.everlastsino.cate.recipe.recipes.PotCookingRecipe;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
@@ -44,8 +41,8 @@ public record CuttingRecipeSerializer<T extends CuttingRecipe>(
         packetByteBuf.writeItemStack(cuttingRecipe.ingredient);
         packetByteBuf.writeItemStack(cuttingRecipe.result);
         packetByteBuf.writeItemStack(cuttingRecipe.tool);
-        packetByteBuf.writeInt(cuttingRecipe.damageTool);
-        packetByteBuf.writeInt(cuttingRecipe.steps);
+        packetByteBuf.writeVarInt(cuttingRecipe.damageTool);
+        packetByteBuf.writeVarInt(cuttingRecipe.steps);
     }
 
     public interface RecipeFactory<T extends CuttingRecipe> {

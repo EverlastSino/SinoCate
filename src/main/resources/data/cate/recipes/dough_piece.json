@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:dough_jizi",
+  "resultAmount": 1,
+  "result": "cate:dough_piece",
+  "tool": "cate:rolling_pin",
+  "damageTool": 1,
+  "steps": 5
+}

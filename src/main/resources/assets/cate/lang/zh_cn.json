@@ -1,5 +1,6 @@
 {
   "itemGroup.cate.cate":"肴馔",
+  "itemGroup.cate.flour_products":"肴馔面食",
 
   "block.cate.paddy":"秧",
   "block.cate.paddy_seedling":"稻谷",
@@ -18,6 +19,9 @@
   "block.cate.soybean":"大豆",
   "block.cate.wooden_steamer":"木制蒸笼",
   "block.cate.smoking_rack":"熏肉架",
+  "block.cate.sun_drying_tray":"晾晒盘",
+  "block.cate.orange_tree_sapling":"橘树树苗",
+  "block.cate.orange_tree_leaves":"橘树树叶",
 
   "item.cate.paddy_straw":"稻",
   "item.cate.osmanthus":"桂花",
@@ -30,7 +34,7 @@
   "item.cate.kitchen_knife":"厨刀",
   "item.cate.dough":"面团",
   "item.cate.flour":"面粉",
-  "item.cate.tang_yuan":"汤圆",
+  "item.cate.tangyuan":"汤圆",
   "item.cate.salt":"食盐",
   "item.cate.salt_bucket":"食盐桶",
   "item.cate.rolling_pin":"擀面杖",
@@ -43,12 +47,20 @@
   "item.cate.minced_meat":"肉泥",
   "item.cate.cured_porkchop":"腊肉",
   "item.cate.smoked_porkchop":"熏猪肉",
+  "item.cate.orange":"橘",
+  "item.cate.dough_bar":"长条面团",
+  "item.cate.dough_jizi":"面剂子",
+  "item.cate.dough_piece":"面皮",
+  "item.cate.wheat_noodles":"小麦拉面",
+  "item.cate.dumpling":"饺子",
+  "item.cate.leavened_dough":"酵母发过的面团",
+  "item.cate.mantou":"生馒头",
 
-  "item.cate.tooltip.tang_yuan":"中华传统美食——汤圆",
+  "item.cate.tooltip.tangyuan":"中华传统美食——汤圆",
   "item.cate.tooltip.baozi":"(生) 中国特色食品中的一种",
   "item.cate.tooltip.cooked_baozi":"(熟) 中国特色食品中的一种",
-  "item.cate.rolling_pin.tooltip.dough":"更改为 面团 模式",
-  "item.cate.rolling_pin.tooltip.tang_yuan":"更改为 汤圆 模式",
+  "item.cate.tooltip.dough_jizi":"一小块面团",
+  "item.cate.tooltip.mantou":"酵母蓬松过的面团",
 
   "entity.cate.oyster":"牡蛎"
 }

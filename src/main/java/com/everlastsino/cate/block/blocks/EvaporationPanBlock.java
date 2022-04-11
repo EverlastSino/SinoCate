@@ -22,8 +22,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.event.GameEvent;
 
 import java.util.Random;
 
@@ -54,7 +52,7 @@ public class EvaporationPanBlock extends Block {
         boolean isCooking = blockState.isOf(Blocks.FIRE) || blockState.isOf(Blocks.SOUL_FIRE) || blockState.isOf(Blocks.CAMPFIRE) || blockState.isOf(Blocks.SOUL_CAMPFIRE);
         boolean isUnderSky = world.isSkyVisible(pos) && world.isDay();
         int level = state.get(LEVEL);
-        if (level > 0 && level < 3 && random.nextInt(Math.max(50 - (isCooking ? 20 : 0) - (isUnderSky ? (world.isRaining() ? -60 : 20) : 0), 0)) == 0) {
+        if (level > 0 && level < 3 && random.nextInt(Math.max(50 - (isCooking ? 25 : 0) - (isUnderSky ? (world.isRaining() ? -60 : 20) : 0), 0)) == 0) {
             world.setBlockState(pos, state.with(LEVEL, level + 1));
         }
     }

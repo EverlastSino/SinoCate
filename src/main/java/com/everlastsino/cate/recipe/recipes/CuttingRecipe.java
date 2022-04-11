@@ -1,6 +1,5 @@
 package com.everlastsino.cate.recipe.recipes;
 
-import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.item.CateItems;
 import com.everlastsino.cate.recipe.CateRecipes;
 import net.minecraft.inventory.Inventory;

@@ -52,19 +52,17 @@ public class SmokingRackBlock extends BlockWithEntity {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof SmokingRackBlockEntity entity && hand == Hand.MAIN_HAND) {
             ItemStack itemStack = player.getStackInHand(hand);
-            if (itemStack.isEmpty()) {
-                ItemStack pickItem = entity.pickItem();
-                if (pickItem.isEmpty()) return ActionResult.PASS;
-                player.setStackInHand(hand, pickItem);
-                return ActionResult.SUCCESS;
-            } else if (entity.isFull() && itemStack.getCount() < itemStack.getMaxCount() && itemStack.isOf(entity.getItem().getItem())) {
-                ItemStack pickItem = entity.pickItem();
-                if (pickItem.isEmpty()) return ActionResult.PASS;
-                itemStack.increment(1);
-                return ActionResult.SUCCESS;
+            if (player.isSneaking()) {
+                ItemStack pickStack = entity.pickItem();
+                if (!player.getInventory().insertStack(pickStack)) {
+                    player.dropItem(pickStack, false);
+                }
+            } else if (!itemStack.isEmpty()) {
+                if (!entity.insertItem(itemStack)) return ActionResult.PASS;
             } else {
-                if (entity.insertItem(itemStack)) return ActionResult.SUCCESS;
+                return ActionResult.PASS;
             }
+            return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
     }

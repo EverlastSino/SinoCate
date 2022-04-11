@@ -1,11 +1,20 @@
 {
-    "type": "cate:milling",
-    "ingredient": [
-      {"item": "cate:rock_salt_ore"}
-    ],
-    "container": "minecraft:bucket",
-    "result": [
-      {"item": "cate:salt_bucket"}
-    ],
-    "rounds": 5
- }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass_bottle"
+    },
+    "$": {
+      "item": "cate:salt_bucket"
+    }
+  },
+  "result": {
+    "item": "cate:salt",
+    "count": 8
+  }
+}

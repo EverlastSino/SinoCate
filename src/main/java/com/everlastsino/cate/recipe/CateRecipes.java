@@ -23,6 +23,9 @@ public class CateRecipes {
     public static RecipeType<SmokyGrillingRecipe> Smoky_Grilling_RecipeType;
     public static RecipeSerializer<SmokyGrillingRecipe> Smoky_Grilling_RecipeSerializer;
 
+    public static RecipeType<SunDryingRecipe> Sun_Drying_RecipeType;
+    public static RecipeSerializer<SunDryingRecipe> Sun_Drying_RecipeSerializer;
+
     public static void registerRecipes(){
 
         Pot_Cooking_RecipeType = Registry.register(Registry.RECIPE_TYPE, new Identifier("cate", "pot_cooking"),
@@ -49,6 +52,11 @@ public class CateRecipes {
                 new RecipeType<SmokyGrillingRecipe>(){});
         Smoky_Grilling_RecipeSerializer = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("cate", "smoky_grilling"),
                 new SmokyGrillingRecipeSerializer<>(SmokyGrillingRecipe::new));
+
+        Sun_Drying_RecipeType = Registry.register(Registry.RECIPE_TYPE, new Identifier("cate", "sun_drying"),
+                new RecipeType<SunDryingRecipe>(){});
+        Sun_Drying_RecipeSerializer = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier("cate", "sun_drying"),
+                new SunDryingRecipeSerializer<>(SunDryingRecipe::new));
 
     }
 
