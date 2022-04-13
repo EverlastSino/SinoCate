@@ -9,6 +9,8 @@ import com.everlastsino.cate.item.CateItemTags;
 import com.everlastsino.cate.item.CateItems;
 import com.everlastsino.cate.recipe.CateRecipes;
 import com.everlastsino.cate.screen.CateScreenHandlers;
+import com.everlastsino.cate.util.CateCommands;
+import com.everlastsino.cate.util.CateListeners;
 import com.everlastsino.cate.world.CateFeatures;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +39,10 @@ public class CateMain implements ModInitializer {
 		CateFeatures.registerFeatures();
 
 		CateSoundEvents.register();
+
+		CateListeners.register();
+
+		CateCommands.register();
 
 		CateLogger.info("Successfully loaded SinoCate Mod for fabric.");
 

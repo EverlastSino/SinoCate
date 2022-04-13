@@ -10,7 +10,7 @@
       "item": "cate:flour"
     },
     "$": {
-      "tag": "minecraft:potion"
+      "item": "minecraft:potion"
     }
   },
   "result": {

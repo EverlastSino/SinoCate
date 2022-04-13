@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "cate:block/paddy2"
+    "cross": "cate:block/paddy_upper3"
   }
 }

@@ -82,7 +82,8 @@ public class PaddyBlock extends TallPlantBlock implements Waterloggable, Fertili
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return ((floor.isOf(Blocks.CLAY) || floor.isOf(Blocks.FARMLAND)) &&
-                world.getFluidState(pos.up()).isOf(Fluids.WATER) && world.getFluidState(pos.up(2)).isOf(Fluids.EMPTY))
+                world.getFluidState(pos.up()).isOf(Fluids.WATER) && world.getFluidState(pos.up(2)).isOf(Fluids.EMPTY)
+                && (world.getBlockState(pos.up(2)).isOf(CateCrops.Paddy) || world.getBlockState(pos.up(2)).isOf(Blocks.AIR)))
                 || floor.isOf(CateCrops.Paddy); //可以种植在粘土和耕地上
     }
 

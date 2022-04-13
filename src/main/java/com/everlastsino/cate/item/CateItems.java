@@ -25,6 +25,8 @@ public class CateItems {
     public static final Item Osmanthus = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Orange = new Item(new FabricItemSettings()
             .group(CateItemGroups.CateGroup).food(FoodComponents.APPLE));
+    public static final Item Garlic_Leaf = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final Item Garlic_Bolt = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //食材
     public static final Item Rice = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
@@ -132,10 +134,16 @@ public class CateItems {
             new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final BlockItem Soybean = new BlockItem(CateCrops.Soybean,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
+    public static final BlockItem Garlic = new BlockItem(CateCrops.Garlic,
+            new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //非耕地
     public static final BlockItem Grown_Paddy_Seedling = new BlockItem(CateCrops.Paddy,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
+
+    //Easter Eggs
+    public static final Item Baguette = new SwordItem(ToolMaterials.IRON, 2, -2.0f,
+            new FabricItemSettings().maxDamage(64).food(new FoodComponent.Builder().hunger(8).saturationModifier(1f).build()));
 
 
     public static void registerItems(){
@@ -148,6 +156,8 @@ public class CateItems {
         registerItem("paddy_straw", Paddy_Straw);
         registerItem("osmanthus", Osmanthus);
         registerItem("orange", Orange);
+        registerItem("garlic_leaf", Garlic_Leaf);
+        registerItem("garlic_bolt", Garlic_Bolt);
 
         //食材
         registerItem("rice", Rice);
@@ -220,9 +230,13 @@ public class CateItems {
         registerItem("adzuki_bean", Adzuki_Bean);
         registerItem("ginger", Ginger);
         registerItem("soybean", Soybean);
+        registerItem("garlic", Garlic);
 
         //非耕地
         registerItem("grown_paddy_seedling", Grown_Paddy_Seedling);
+
+        //Easter Eggs
+        registerItem("baguette", Baguette);
     }
 
     private static void registerItem(String name, Item item) {

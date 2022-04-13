@@ -6,11 +6,17 @@
     "age=1": {
       "model": "cate:block/paddy1"
     },
-    "age=2": {
-      "model": "cate:block/paddy2"
+    "age=2,half=lower": {
+      "model": "cate:block/paddy_lower2"
     },
-    "age=3": {
-      "model": "cate:block/paddy3"
+    "age=3,half=lower": {
+      "model": "cate:block/paddy_lower3"
+    },
+    "age=2,half=upper": {
+      "model": "cate:block/paddy_upper2"
+    },
+    "age=3,half=upper": {
+      "model": "cate:block/paddy_upper3"
     }
   }
 }

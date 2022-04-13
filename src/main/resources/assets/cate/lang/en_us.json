@@ -22,6 +22,7 @@
   "block.cate.sun_drying_tray":"Sun-Drying Tray",
   "block.cate.orange_tree_sapling":"Orange Tree Sapling",
   "block.cate.orange_tree_leaves":"Orange Tree Leaves",
+  "block.cate.garlic":"Garlic",
   
   "item.cate.paddy_straw":"Paddy Straw",
   "item.cate.osmanthus":"Osmanthus",
@@ -55,6 +56,8 @@
   "item.cate.dumpling":"Dumpling",
   "item.cate.leavened_dough":"Leavened Dough",
   "item.cate.mantou":"Mantou",
+  "item.cate.garlic_bolt":"Garlic Bolt",
+  "item.cate.garlic_leaf":"Garlic Leaf",
 
   "item.cate.tooltip.tangyuan":"Chinese traditional glue puddings",
   "item.cate.tooltip.baozi":"A type of yeast-leavened filled bun",

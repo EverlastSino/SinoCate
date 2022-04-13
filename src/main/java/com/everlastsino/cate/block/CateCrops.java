@@ -20,6 +20,8 @@ public class CateCrops {
             FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).nonOpaque().noCollision());
     public static final Block Soybean = new CropBlockWithSeed(CateItems.Soybean,
             FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).nonOpaque().noCollision());
+    public static final Block Garlic = new CropBlockWithSeed(CateItems.Garlic,
+            FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).nonOpaque().noCollision());
 
     //非耕地型作物
     public static final Block Paddy = new PaddyBlock(
@@ -32,6 +34,7 @@ public class CateCrops {
         registerBlock("adzuki_bean", Adzuki_Bean);
         registerBlock("ginger", Ginger);
         registerBlock("soybean", Soybean);
+        registerBlock("garlic", Garlic);
 
         //非耕地型作物
         registerBlock("paddy", Paddy);
