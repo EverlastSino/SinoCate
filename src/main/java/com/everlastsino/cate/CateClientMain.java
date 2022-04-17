@@ -73,10 +73,11 @@ public class CateClientMain implements ClientModInitializer {
 
     public static void renderCookingExpBar(MatrixStack matrices, float tickDelta) {
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null || client.player.getAbilities().creativeMode) return;
+        if (client.player == null) return;
         InGameHud inGameHud = client.inGameHud;
         int scaledWidth = client.getWindow().getScaledWidth();
         int scaledHeight = client.getWindow().getScaledHeight();
+        if (client.player.getAbilities().creativeMode) return;
         int x = scaledWidth / 2 + 95;
         int l;
         int k;

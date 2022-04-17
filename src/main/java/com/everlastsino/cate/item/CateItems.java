@@ -3,6 +3,7 @@ package com.everlastsino.cate.item;
 import com.everlastsino.cate.block.CateBlocks;
 import com.everlastsino.cate.block.CateCrops;
 import com.everlastsino.cate.entity.CateEntities;
+import com.everlastsino.cate.item.items.FoodWithContainerItem;
 import com.everlastsino.cate.item.items.ItemWithToolTip;
 import com.everlastsino.cate.item.items.SimpleDrinkItem;
 import com.everlastsino.cate.itemGroup.CateItemGroups;
@@ -20,11 +21,15 @@ public class CateItems {
     public static final Item Kitchen_Knife = new SwordItem(ToolMaterials.IRON, 2, -3.0f,
             new FabricItemSettings().group(CateItemGroups.CateGroup));
 
+    //中间产物
+    public static final Item Orange_Peel = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
+
     //农副产品
     public static final Item Paddy_Straw = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Osmanthus = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
-    public static final Item Orange = new Item(new FabricItemSettings()
-            .group(CateItemGroups.CateGroup).food(FoodComponents.APPLE));
+    public static final Item Orange = new FoodWithContainerItem(Orange_Peel, new FabricItemSettings()
+            .group(CateItemGroups.CateGroup).food(
+                    new FoodComponent.Builder().hunger(3).saturationModifier(0.2f).snack().alwaysEdible().build()));
     public static final Item Garlic_Leaf = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Garlic_Bolt = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
@@ -56,6 +61,7 @@ public class CateItems {
             .group(CateItemGroups.CateGroup).recipeRemainder(Items.GLASS_BOTTLE));
     public static final Item Salt_Bucket = new Item(new FabricItemSettings()
             .recipeRemainder(Items.BUCKET).group(CateItemGroups.CateGroup));
+    public static final Item Tangerine_Peel = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
 
     //生食区
     public static final Item Raw_Soymilk = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
@@ -80,6 +86,8 @@ public class CateItems {
     public static final Item Cured_Porkchop = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup));
     public static final Item Smoked_Porkchop = new Item(new FabricItemSettings()
             .group(CateItemGroups.CateGroup).food(FoodComponents.COOKED_PORKCHOP));
+    public static final Item Steamed_Dumpling = new Item(new FabricItemSettings().group(CateItemGroups.CateGroup)
+            .food(new FoodComponent.Builder().hunger(5).saturationModifier(0.9f).build()));
 
     //刷怪蛋
     public static final Item Oyster_Spawn_Egg = new SpawnEggItem(CateEntities.Oyster_Entity,
@@ -152,6 +160,9 @@ public class CateItems {
         registerItem("rolling_pin", Rolling_Pin);
         registerItem("kitchen_knife", Kitchen_Knife);
 
+        //中间产物
+        registerItem("orange_peel", Orange_Peel);
+
         //农副产品
         registerItem("paddy_straw", Paddy_Straw);
         registerItem("osmanthus", Osmanthus);
@@ -182,6 +193,7 @@ public class CateItems {
         registerItem("oyster_sauce", Oyster_Sauce);
         registerItem("salt", Salt);
         registerItem("salt_bucket", Salt_Bucket);
+        registerItem("tangerine_peel", Tangerine_Peel);
 
         //生食区
         registerItem("raw_soymilk", Raw_Soymilk);
@@ -196,6 +208,7 @@ public class CateItems {
         registerItem("cooked_baozi", Cooked_Baozi);
         registerItem("cured_porkchop", Cured_Porkchop);
         registerItem("smoked_porkchop", Smoked_Porkchop);
+        registerItem("steamed_dumpling", Steamed_Dumpling);
 
         //刷怪蛋
         registerItem("oyster_spawn_egg", Oyster_Spawn_Egg);

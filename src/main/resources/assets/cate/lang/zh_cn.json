@@ -22,7 +22,7 @@
   "block.cate.sun_drying_tray":"晾晒盘",
   "block.cate.orange_tree_sapling":"橘树树苗",
   "block.cate.orange_tree_leaves":"橘树树叶",
-  "block.cate.garlic":"蒜头",
+  "block.cate.garlic":"大蒜",
 
   "item.cate.paddy_straw":"稻",
   "item.cate.osmanthus":"桂花",
@@ -58,6 +58,9 @@
   "item.cate.mantou":"生馒头",
   "item.cate.garlic_bolt":"蒜薹",
   "item.cate.garlic_leaf":"蒜叶",
+  "item.cate.orange_peel":"橘皮",
+  "item.cate.tangerine_peel":"陈皮",
+  "item.cate.steamed_dumpling":"蒸饺",
 
   "item.cate.tooltip.tangyuan":"中华传统美食——汤圆",
   "item.cate.tooltip.baozi":"(生) 中国特色食品中的一种",

@@ -64,7 +64,7 @@ public class CookingExperienceCommand {
 
     private static int executeQueryOthersExp(CommandContext<ServerCommandSource> context) {
         try {
-            PlayerEntity player = context.getSource().getPlayer(), target = EntityArgumentType.getPlayer(context, "player");;
+            PlayerEntity player = context.getSource().getPlayer(), target = EntityArgumentType.getPlayer(context, "player");
             CookingExperienceState state = AllCookingExpStates.INSTANCE.get(target);
             player.sendMessage(Text.of("You are now on level " + state.level + " with exp " + state.experience), false);
             return 0;

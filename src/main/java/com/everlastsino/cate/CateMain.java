@@ -15,13 +15,15 @@ import com.everlastsino.cate.world.CateFeatures;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 public class CateMain implements ModInitializer {
 	public static final Logger CateLogger = LogManager.getLogger("SinoCateServer");
 
 	@Override
 	public void onInitialize() {
-		CateLogger.info("Ready to register objects. Best wishes from EverlastSino Team ^_^!");
+		CateLogger.info("Ready to register objects. From EverlastSino Team ^_^!");
+		GeckoLib.initialize();
 
 		CateItems.registerItems();
 		CateFuelItemRegister.register();
@@ -44,7 +46,7 @@ public class CateMain implements ModInitializer {
 
 		CateCommands.register();
 
-		CateLogger.info("Successfully loaded SinoCate Mod for fabric.");
+		CateLogger.info("Successfully loaded SinoCate Mod based on Fabric.");
 
 	}
 
