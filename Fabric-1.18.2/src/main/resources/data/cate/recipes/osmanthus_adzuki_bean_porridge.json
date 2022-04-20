@@ -1,0 +1,15 @@
+{
+    "type": "cate:pot_cooking",
+    "ingredient": [
+      {"item": "cate:tangyuan"},
+      {"item": "cate:osmanthus"},
+      {"item": "cate:adzuki_bean"},
+      {"item": "minecraft:sugar"}
+    ],
+    "container": "minecraft:bowl",
+    "result": [
+        {"item": "cate:osmanthus_adzuki_bean_porridge"}
+    ],
+    "experience": 0.35,
+    "cookingtime": 200
+  }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cate:block/smoking_rack"
+    },
+    "facing=south": {
+      "model": "cate:block/smoking_rack",
+      "y":180
+    },
+    "facing=east": {
+      "model": "cate:block/smoking_rack",
+      "y":90
+    },
+    "facing=west": {
+      "model": "cate:block/smoking_rack",
+      "y":270
+    }
+  }
+}

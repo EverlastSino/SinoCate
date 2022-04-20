@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "cate:salt"
+    },
+    "$": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "cate:salt_bucket"
+  }
+}

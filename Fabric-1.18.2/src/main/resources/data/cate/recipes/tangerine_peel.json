@@ -1,0 +1,6 @@
+{
+  "type": "cate:sun_drying",
+  "ingredient": "cate:orange_peel",
+  "result": "cate:tangerine_peel",
+  "dryingtime": 2000
+}

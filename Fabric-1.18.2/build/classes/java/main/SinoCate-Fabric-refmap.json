@@ -1,0 +1,32 @@
+{
+  "mappings": {
+    "com/everlastsino/cate/mixin/CateOreGens": {
+      "addDefaultOres(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_38568(Lnet/minecraft/class_5485$class_5495;)V"
+    },
+    "com/everlastsino/cate/mixin/CateTreeGens": {
+      "addForestTrees(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_17021(Lnet/minecraft/class_5485$class_5495;)V",
+      "addPlainsFeatures(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_16974(Lnet/minecraft/class_5485$class_5495;)V"
+    },
+    "com/everlastsino/cate/mixin/CateEntityGens": {
+      "createLukewarmOcean(Z)Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30709(Z)Lnet/minecraft/class_1959;",
+      "createBeach(ZZ)Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30685(ZZ)Lnet/minecraft/class_1959;",
+      "createWarmOcean()Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30723()Lnet/minecraft/class_1959;"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "com/everlastsino/cate/mixin/CateOreGens": {
+        "addDefaultOres(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_38568(Lnet/minecraft/class_5485$class_5495;)V"
+      },
+      "com/everlastsino/cate/mixin/CateTreeGens": {
+        "addForestTrees(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_17021(Lnet/minecraft/class_5485$class_5495;)V",
+        "addPlainsFeatures(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V": "Lnet/minecraft/class_3864;method_16974(Lnet/minecraft/class_5485$class_5495;)V"
+      },
+      "com/everlastsino/cate/mixin/CateEntityGens": {
+        "createLukewarmOcean(Z)Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30709(Z)Lnet/minecraft/class_1959;",
+        "createBeach(ZZ)Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30685(ZZ)Lnet/minecraft/class_1959;",
+        "createWarmOcean()Lnet/minecraft/world/biome/Biome;": "Lnet/minecraft/class_5478;method_30723()Lnet/minecraft/class_1959;"
+      }
+    }
+  }
+}

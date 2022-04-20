@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:dough_bar",
+  "resultAmount": 4,
+  "result": "cate:dough_jizi",
+  "tool": "minecraft:air",
+  "damageTool": 0,
+  "steps": 5
+}

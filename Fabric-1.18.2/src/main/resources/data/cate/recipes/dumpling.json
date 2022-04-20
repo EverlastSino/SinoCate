@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:dough_piece",
+  "resultAmount": 1,
+  "result": "cate:dumpling",
+  "tool": "cate:minced_meat",
+  "damageTool": 1,
+  "steps": 1
+}

@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "minecraft:mutton",
+  "resultAmount": 1,
+  "result": "cate:minced_meat",
+  "tool": "cate:kitchen_knife",
+  "damageTool": 1,
+  "steps": 6
+}

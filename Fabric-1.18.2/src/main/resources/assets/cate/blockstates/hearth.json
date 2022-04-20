@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "situation=none,facing=north": { "model": "cate:block/hearth_none" },
+        "situation=small,facing=north": { "model": "cate:block/hearth_small" },
+        "situation=large,facing=north": { "model": "cate:block/hearth_large" },
+        
+        "situation=none,facing=south": { "model": "cate:block/hearth_none", "y": 180 },
+        "situation=small,facing=south": { "model": "cate:block/hearth_small", "y": 180 },
+        "situation=large,facing=south": { "model": "cate:block/hearth_large", "y": 180 },
+        
+        "situation=none,facing=west": { "model": "cate:block/hearth_none", "y": 270 },
+        "situation=small,facing=west": { "model": "cate:block/hearth_small", "y": 270 },
+        "situation=large,facing=west": { "model": "cate:block/hearth_large", "y": 270 },
+        
+        "situation=none,facing=east": { "model": "cate:block/hearth_none", "y": 90 },
+        "situation=small,facing=east": { "model": "cate:block/hearth_small", "y": 90 },
+        "situation=large,facing=east": { "model": "cate:block/hearth_large", "y": 90 }
+    }
+}

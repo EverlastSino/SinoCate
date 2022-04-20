@@ -1,0 +1,9 @@
+{
+  "type": "cate:cutting",
+  "ingredient": "cate:orange",
+  "resultAmount": 1,
+  "result": "cate:orange_peel",
+  "tool": "cate:kitchen_knife",
+  "damageTool": 1,
+  "steps": 3
+}

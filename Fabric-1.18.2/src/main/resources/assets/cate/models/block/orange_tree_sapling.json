@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "cate:block/orange_tree_sapling"
+  }
+}

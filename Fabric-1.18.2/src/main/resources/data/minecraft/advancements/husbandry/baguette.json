@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "cate:baguette"
+    },
+    "title": {
+      "translate": "advancements.husbandry.baguette.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.baguette.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "baguette": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cate:baguette"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "baguette"
+    ]
+  ]
+}

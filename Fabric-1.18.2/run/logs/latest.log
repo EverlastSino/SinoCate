@@ -1,0 +1,187 @@
+[08:37:29] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.18.2 with Fabric Loader 0.13.3
+[08:37:29] [main/INFO] (FabricLoader) Loading 48 mods:
+	- cate 2204-snapshot-for-1.18.2
+	- fabric 0.47.8+1.18.2
+	- fabric-api-base 0.4.3+d7c144a8d2
+	- fabric-api-lookup-api-v1 1.5.6+d7c144a8d2
+	- fabric-biome-api-v1 8.0.1+2873dd57d2
+	- fabric-blockrenderlayer-v1 1.1.11+3ac43d95d2
+	- fabric-command-api-v1 1.1.8+d7c144a8d2
+	- fabric-commands-v0 0.2.7+b4f4f6cdd2
+	- fabric-containers-v0 0.1.20+d7c144a8d2
+	- fabric-content-registries-v0 3.0.0+d82b9392d2
+	- fabric-crash-report-info-v1 0.1.10+3ac43d95d2
+	- fabric-data-generation-api-v1 2.0.4+ebd24f87d2
+	- fabric-dimensions-v1 2.1.16+25407454d2
+	- fabric-entity-events-v1 1.4.7+d7c144a8d2
+	- fabric-events-interaction-v0 0.4.18+d7c144a8d2
+	- fabric-events-lifecycle-v0 0.2.12+d7c144a8d2
+	- fabric-game-rule-api-v1 1.0.12+d7c144a8d2
+	- fabric-gametest-api-v1 1.0.13+25407454d2
+	- fabric-item-api-v1 1.3.2+691a79b5d2
+	- fabric-item-groups-v0 0.3.8+3ac43d95d2
+	- fabric-key-binding-api-v1 1.0.11+54e5b2ecd2
+	- fabric-keybindings-v0 0.2.9+b4f4f6cdd2
+	- fabric-lifecycle-events-v1 2.0.1+25407454d2
+	- fabric-loot-tables-v1 1.0.10+d7c144a8d2
+	- fabric-mining-level-api-v1 2.0.2+d1027f7dd2
+	- fabric-models-v0 0.3.5+d7c144a8d2
+	- fabric-networking-api-v1 1.0.20+d882b915d2
+	- fabric-networking-v0 0.3.7+b4f4f6cdd2
+	- fabric-object-builder-api-v1 2.0.1+d882b915d2
+	- fabric-particles-v1 0.2.11+526dc1acd2
+	- fabric-registry-sync-v0 0.9.5+55dca1a4d2
+	- fabric-renderer-api-v1 0.4.12+d882b915d2
+	- fabric-renderer-indigo 0.4.16+d8c7b9aed2
+	- fabric-renderer-registries-v1 3.2.10+b4f4f6cdd2
+	- fabric-rendering-data-attachment-v1 0.3.6+d7c144a8d2
+	- fabric-rendering-fluids-v1 2.0.1+54e5b2ecd2
+	- fabric-rendering-v0 1.1.12+b4f4f6cdd2
+	- fabric-rendering-v1 1.10.6+54e5b2ecd2
+	- fabric-resource-conditions-api-v1 2.0.1+d1027f7dd2
+	- fabric-resource-loader-v0 0.4.16+55dca1a4d2
+	- fabric-screen-api-v1 1.0.9+d882b915d2
+	- fabric-screen-handler-api-v1 1.1.13+d7c144a8d2
+	- fabric-textures-v0 1.0.11+3ac43d95d2
+	- fabric-transfer-api-v1 1.5.12+d882b915d2
+	- fabricloader 0.13.3
+	- geckolib3 3.0.38
+	- java 17
+	- minecraft 1.18.2
+[08:37:29] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.5 Source=file:/C:/Users/User/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.11.2+mixin.0.8.5/f4ae569d559b5e3244b67321945261d83ff7ad8e/sponge-mixin-0.11.2+mixin.0.8.5.jar Service=Knot/Fabric Env=CLIENT
+[08:37:29] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[08:37:29] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[08:37:29] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[08:37:34] [main/WARN] (FabricLoader/Mixin) @Inject(@At("INVOKE")) Shift.BY=3 on fabric-lifecycle-events-v1.mixins.json:client.WorldChunkMixin::handler$zfd000$onLoadBlockEntity exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.
+[08:37:37] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[08:37:39] [Render thread/ERROR] (Minecraft) Failed to verify authentication
+com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+	at com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:56) ~[authlib-3.3.39.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:132) ~[authlib-3.3.39.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.<init>(YggdrasilUserApiService.java:44) ~[authlib-3.3.39.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.createUserApiService(YggdrasilAuthenticationService.java:153) ~[authlib-3.3.39.jar:?]
+	at net.minecraft.client.MinecraftClient.createUserApiService(MinecraftClient.java:673) [minecraft-project-@Fabric-1.18.2-merged-named.jar:?]
+	at net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:495) [minecraft-project-@Fabric-1.18.2-merged-named.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:178) [minecraft-project-@Fabric-1.18.2-merged-named.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:416) [fabric-loader-0.13.3.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:77) [fabric-loader-0.13.3.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.13.3.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:78) ~[authlib-3.3.39.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:48) ~[authlib-3.3.39.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:113) ~[authlib-3.3.39.jar:?]
+	... 13 more
+[08:37:39] [Render thread/INFO] (Minecraft) Setting user: Player831
+[08:37:39] [Render thread/INFO] (SinoCateServer) Ready to register objects. From EverlastSino Team ^_^!
+[08:37:39] [Render thread/INFO] (SinoCateServer) Successfully loaded SinoCate Mod based on Fabric.
+[08:37:39] [Render thread/ERROR] (Minecraft) No data fixer registered for geoexampleentity
+[08:37:39] [Render thread/ERROR] (Minecraft) No data fixer registered for bikeentity
+[08:37:39] [Render thread/ERROR] (Minecraft) No data fixer registered for extendedrendererentity
+[08:37:39] [Render thread/ERROR] (Minecraft) No data fixer registered for leentity
+[08:37:39] [Render thread/ERROR] (Minecraft) No data fixer registered for rocketprojectile
+[08:37:39] [Render thread/INFO] (SinoCateClient) Start to initialize client settings.
+[08:37:40] [Render thread/INFO] (SinoCateClient) Successfully initialized!
+[08:37:40] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[08:37:40] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.2.2 build 10
+[08:37:46] [Render thread/INFO] (Minecraft) Narrator library for x64 successfully loaded
+[08:37:46] [Render thread/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Mods (Fabric Rendering Data Attachment (v1), Fabric Commands (v0), Fabric Item API (v1), Fabric Entity Events (v1), Fabric Biome API (v1), Fabric Transfer API (v1), SinoCate, Fabric Renderer Registries (v1), Fabric Mining Level API (v1), Fabric Rendering (v0), Fabric Containers (v0), Fabric Networking (v0), Fabric API, Fabric BlockRenderLayer Registration (v1), Fabric Resource Conditions API (v1), Fabric Particles (v1), Geckolib, Fabric Registry Sync (v0), Fabric Key Binding API (v1), Fabric Game Rule API (v1), Fabric Game Test API (v1), Fabric API Base, Fabric Data Generation API (v1), Fabric Events Interaction (v0), Fabric Object Builder API (v1), Fabric Networking API (v1), Fabric Key Bindings (v0), Fabric Lifecycle Events (v1), Fabric Resource Loader (v0), Fabric Screen Handler API (v1), Fabric API Lookup API (v1), Fabric Content Registries (v0), Fabric Screen API (v1), Fabric Events Lifecycle (v0), Fabric Loader, Fabric Renderer API (v1), Fabric Renderer - Indigo, Fabric Textures (v0), Fabric Crash Report Info (v1), Fabric Command API (v1), Fabric Loot Tables (v1), Fabric Item Groups (v0), Fabric Models (v0), Fabric Rendering (v1), Fabric Rendering Fluids (v1), Fabric Dimensions API (v1))
+[08:37:49] [Worker-Main-19/WARN] (Minecraft) Unable to load model: 'geckolib3:botariumblock#inventory' referenced from: geckolib3:botariumblock#inventory: java.io.FileNotFoundException: geckolib3:models/item/botariumblock.json
+[08:37:49] [Worker-Main-19/WARN] (Minecraft) Unable to load model: 'geckolib3:fertilizerblock#inventory' referenced from: geckolib3:fertilizerblock#inventory: java.io.FileNotFoundException: geckolib3:models/item/fertilizerblock.json
+[08:37:51] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on FxSound Speakers (FxSound Audio Enhancer)
+[08:37:51] [Render thread/INFO] (Minecraft) Sound engine started
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[08:37:51] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[08:37:53] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[08:37:53] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[08:37:53] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[08:38:46] [Realms Notification Availability checker #1/INFO] (Minecraft) Could not authorize you against Realms server: Invalid session id
+[08:40:25] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:40:25] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:40:25] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:40:25] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:40:25] [Render thread/WARN] (Minecraft) Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:40:26] [Render thread/INFO] (Minecraft) Loaded 13 recipes
+[08:40:27] [Render thread/INFO] (Minecraft) Loaded 1142 advancements
+[08:40:27] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[08:40:27] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 61 new biomes in 3.413 ms
+[08:40:27] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.18.2
+[08:40:27] [Server thread/INFO] (Minecraft) Generating keypair
+[08:40:27] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[08:40:28] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[08:40:28] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[08:40:29] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[08:40:29] [Render thread/INFO] (Minecraft) Preparing spawn area: 1%
+[08:40:30] [Render thread/INFO] (Minecraft) Preparing spawn area: 69%
+[08:40:30] [Server thread/INFO] (SinoCateServer) Loaded SinoCate data.
+[08:40:30] [Render thread/INFO] (Minecraft) Time elapsed: 2299 ms
+[08:40:30] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[08:40:30] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[08:40:31] [Server thread/INFO] (Minecraft) Player831[local:E:5b6f82d0] logged in with entity id 34 at (107.45497502202971, -60.0, -22.498663666804525)
+[08:40:31] [Server thread/INFO] (Minecraft) Player831 joined the game
+[08:40:31] [Server thread/INFO] (Minecraft) Player831 has completed the challenge [Vive la France]
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:pot_cooking/cate:osmanthus_adzuki_bean_porridge
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:smoky_grilling/cate:smoked_porkchop_and_cured_porkchop
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:milling/cate:salt_bucket2
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:sun_drying/cate:tangerine_peel
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:steaming/cate:cooked_baozi
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:milling/cate:raw_soymilk
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:pot_cooking/cate:cooked_green_soybean
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:steaming/cate:mantou
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:pot_cooking/cate:oyster_sauce
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:milling/cate:flour
+[08:40:31] [Render thread/WARN] (Minecraft) Unknown recipe category: cate:steaming/cate:steamed_dumpling
+[08:40:31] [Render thread/INFO] (Minecraft) [CHAT] Player831 has completed the challenge [Vive la France]
+[08:40:31] [Render thread/INFO] (Minecraft) Loaded 19 advancements
+[08:40:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[08:40:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[08:40:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[08:40:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[08:41:36] [Server thread/INFO] (Minecraft) Player831 has made the advancement [Isn't It Iron Pick]
+[08:41:36] [Render thread/INFO] (Minecraft) [CHAT] Player831 has made the advancement [Isn't It Iron Pick]
+[08:41:36] [Render thread/INFO] (Minecraft) Loaded 29 advancements
+[08:41:42] [Server thread/INFO] (Minecraft) [Player831: Set own game mode to Survival Mode]
+[08:41:42] [Render thread/INFO] (Minecraft) [CHAT] Set own game mode to Survival Mode
+[08:41:51] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[08:41:51] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[08:41:51] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[08:41:51] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[08:42:50] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[08:42:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[08:42:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[08:42:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[08:43:01] [Server thread/INFO] (Minecraft) [Player831: Set own game mode to Creative Mode]
+[08:43:01] [Render thread/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[08:43:22] [Server thread/INFO] (Minecraft) [Player831: Set own game mode to Survival Mode]
+[08:43:22] [Render thread/INFO] (Minecraft) [CHAT] Set own game mode to Survival Mode
+[08:43:35] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[08:43:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[08:43:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[08:43:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[08:45:42] [Server thread/INFO] (Minecraft) [Player831: Set own game mode to Creative Mode]
+[08:45:42] [Render thread/INFO] (Minecraft) [CHAT] Set own game mode to Creative Mode
+[08:46:59] [Render thread/INFO] (Minecraft) Loaded 29 advancements
+[08:47:12] [Render thread/INFO] (Minecraft) Stopping!
+[08:47:12] [Server thread/INFO] (Minecraft) Player831 lost connection: Disconnected
+[08:47:12] [Server thread/INFO] (Minecraft) Player831 left the game
+[08:47:12] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[08:47:12] [Server thread/INFO] (SinoCateServer) Saving SinoCate data.
+[08:47:12] [Server thread/INFO] (Minecraft) Stopping server
+[08:47:12] [Server thread/INFO] (Minecraft) Saving players
+[08:47:12] [Server thread/INFO] (Minecraft) Saving worlds
+[08:47:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[08:47:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[08:47:13] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[08:47:13] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World): All chunks are saved
+[08:47:13] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:47:13] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:47:13] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved

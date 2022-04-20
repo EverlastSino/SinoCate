@@ -1,0 +1,6 @@
+{
+  "type": "cate:steaming",
+  "ingredient": "cate:leavened_dough",
+  "result": "cate:mantou",
+  "cooktime": 600
+}

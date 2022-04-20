@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "cate",
+  "version": "${version}",
+
+  "name": "SinoCate",
+  "description": "This is a mod for Traditional Chinese Food! ",
+  "authors": [
+    "EverlastSino Team",
+    "GregTao"
+  ],
+  "contact": {
+    "homepage": "https://github.com/EverlastSino",
+    "sources": "https://github.com/EverlastSino"
+  },
+
+  "license": "LGPL-V3",
+  "icon": "assets/cate/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.everlastsino.cate.CateMain"
+    ],
+    "client": [
+      "com.everlastsino.cate.CateClientMain"
+    ]
+  },
+  "mixins": [
+    "cate.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

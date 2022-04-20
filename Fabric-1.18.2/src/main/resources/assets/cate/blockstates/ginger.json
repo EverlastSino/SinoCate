@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "cate:block/ginger0" },
+        "age=1": { "model": "cate:block/ginger0" },
+        "age=2": { "model": "cate:block/ginger1" },
+        "age=3": { "model": "cate:block/ginger1" },
+        "age=4": { "model": "cate:block/ginger1" },
+        "age=5": { "model": "cate:block/ginger2" },
+        "age=6": { "model": "cate:block/ginger2" },
+        "age=7": { "model": "cate:block/ginger3" }
+    }
+}

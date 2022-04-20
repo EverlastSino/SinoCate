@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cate:oyster"
+  },
+  "result": "cate:cooked_oyster",
+  "experience": 0.35,
+  "cookingtime": 100
+}

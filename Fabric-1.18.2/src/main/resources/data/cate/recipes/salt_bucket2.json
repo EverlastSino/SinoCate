@@ -1,0 +1,11 @@
+{
+    "type": "cate:milling",
+    "ingredient": [
+      {"item": "cate:rock_salt_ore"}
+    ],
+    "container": "minecraft:bucket",
+    "result": [
+      {"item": "cate:salt_bucket"}
+    ],
+    "rounds": 5
+ }

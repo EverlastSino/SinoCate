@@ -1,0 +1,7 @@
+{
+  "type": "cate:smoky_grilling",
+  "ingredient": "minecraft:porkchop",
+  "result": "cate:cured_porkchop",
+  "cookingtime": 600,
+  "moresmoke": "cate:smoked_porkchop"
+}

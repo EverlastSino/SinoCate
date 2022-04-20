@@ -1,0 +1,14 @@
+{
+    "type": "cate:pot_cooking",
+    "ingredient": [
+      {"item": "cate:green_soybean"},
+      {"item": "cate:salt"}
+    ],
+    "decreasewater": false,
+    "container": "minecraft:air",
+    "result": [
+      {"item": "cate:cooked_green_soybean"}
+    ],
+    "experience": 0.05,
+    "cookingtime": 60
+  }

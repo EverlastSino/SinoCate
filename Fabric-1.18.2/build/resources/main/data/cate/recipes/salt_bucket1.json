@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "cate:salt_block"
+    }
+  ],
+  "result": {
+    "item": "cate:salt_bucket",
+    "count": 4
+  }
+}

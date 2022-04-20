@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "cate:block/osmanthus_tree_leaves0"
+    },
+    "age=1": {
+      "model": "cate:block/osmanthus_tree_leaves1"
+    }
+  }
+}
