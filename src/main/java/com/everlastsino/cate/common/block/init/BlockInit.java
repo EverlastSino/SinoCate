@@ -1,11 +1,17 @@
 package com.everlastsino.cate.common.block.init;
 
+import com.everlastsino.cate.common.block.base.SubordinatedPlantBlock;
 import com.everlastsino.cate.common.handler.RegistryHandler;
+import com.everlastsino.cate.common.util.BlockChecker;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
@@ -16,7 +22,8 @@ public class BlockInit {
     private static final TreeMap<String, BlockInfo> blockList = new TreeMap<>();
 
     public enum Reference {
-        ;
+        AURICULARIA("auricularia", () -> new SubordinatedPlantBlock(BlockChecker.of(BlockTags.OAK_LOGS), Prop.CROP.prop)),
+        WHITE_TREMELLA("white_tremella", () -> new SubordinatedPlantBlock(BlockChecker.of(BlockTags.BIRCH_LOGS), Prop.CROP.prop));
         final String name;
         //Set it to null to avoid registering block item for it
         @Nullable
@@ -31,6 +38,15 @@ public class BlockInit {
 
         Reference(String name, Supplier<Block> block) {
             this(name, block, CreativeModeTab.TAB_BUILDING_BLOCKS);
+        }
+    }
+
+    public enum Prop {
+        CROP(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.CROP).noCollission());
+        final BlockBehaviour.Properties prop;
+
+        Prop(BlockBehaviour.Properties prop) {
+            this.prop = prop;
         }
     }
 
