@@ -20,6 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class SubordinatedPlantBlock extends DirectionalBlock implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
     protected static final VoxelShape[][] SHAPES = new VoxelShape[][]{ //age, direction

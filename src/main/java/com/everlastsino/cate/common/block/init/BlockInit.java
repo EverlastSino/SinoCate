@@ -1,6 +1,7 @@
 package com.everlastsino.cate.common.block.init;
 
 import com.everlastsino.cate.common.block.base.SubordinatedPlantBlock;
+import com.everlastsino.cate.common.block.impl.SaucepanBlock;
 import com.everlastsino.cate.common.handler.RegistryHandler;
 import com.everlastsino.cate.common.util.BlockChecker;
 import net.minecraft.tags.BlockTags;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -22,6 +24,12 @@ public class BlockInit {
     private static final TreeMap<String, BlockInfo> blockList = new TreeMap<>();
 
     public enum Reference {
+        //Decorations
+        SALT_BLOCK("salt_block", () -> new FallingBlock(Prop.SALT.prop)),
+        //Functional
+        SAUCEPAN("saucepan", () -> new SaucepanBlock(Prop.METAL_PAN.prop)),
+        
+        //Crops
         AURICULARIA("auricularia", () -> new SubordinatedPlantBlock(BlockChecker.of(BlockTags.OAK_LOGS), Prop.CROP.prop)),
         WHITE_TREMELLA("white_tremella", () -> new SubordinatedPlantBlock(BlockChecker.of(BlockTags.BIRCH_LOGS), Prop.CROP.prop));
         final String name;
@@ -42,6 +50,8 @@ public class BlockInit {
     }
 
     public enum Prop {
+        METAL_PAN(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.STONE).strength(5.0f, 3.0f)),
+        SALT(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.SAND).strength(.5f, .5f)),
         CROP(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.CROP).noCollission());
         final BlockBehaviour.Properties prop;
 
