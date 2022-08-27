@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "LGPL v3"
+[[mods]]
+modId = "cate"
+version = "${file.jarVersion}"
+displayName = "SinoCate"
+#logoFile="logo.png"
+authors = [
+    "GregTao",
+    "EverlastSino Team"
+]
+description = "A mod for Traditional Chinese Food"
+[[dependencies.cate]]
+modId = "forge"
+mandatory = true
+versionRange = "[40.1.0,)"
+ordering = "NONE"
+side = "BOTH"
